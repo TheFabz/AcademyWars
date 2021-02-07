@@ -36,7 +36,7 @@ public abstract class GameChar implements Destroyable{
 
     //Custom Methods
     @Override
-    public void injure(int damage){ //suffer damage
+    public void sufferDamage(int damage){ //suffer damage
 
     }
 
