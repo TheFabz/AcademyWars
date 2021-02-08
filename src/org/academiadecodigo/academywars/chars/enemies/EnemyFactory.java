@@ -11,11 +11,11 @@ public class EnemyFactory {
             case BOSS:
                 return new Avatar(x, y, "teste");
             case ASTEROIDS:
-                return new Avatar(x, y, "/Users/joaolucianno/Developer/Github/Meusprojetos/AcademyWars/resources/asteroids.png");
+                return new Avatar(x, y, "resources/asteroids.png");
             case SPACESHIP:
-                return new Avatar(x, y,"/Users/joaolucianno/Developer/Github/Meusprojetos/AcademyWars/resources/spaceship.png");
+                return new Avatar(x, y,"resources/enemyship.png");
             default:
-                return new Avatar(x, y, "/Users/joaolucianno/Developer/Github/Meusprojetos/AcademyWars/resources/fire.png");
+                return new Avatar(x, y, "resources/fire.png");
         }
     }
 }

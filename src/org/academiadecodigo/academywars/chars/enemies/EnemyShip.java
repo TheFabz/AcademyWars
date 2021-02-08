@@ -2,9 +2,9 @@ package org.academiadecodigo.academywars.chars.enemies;
 
 import org.academiadecodigo.academywars.chars.Avatar;
 
-public class SpaceShip extends Enemy{
+public class EnemyShip extends Enemy{
     //Constructor
-    public SpaceShip(int health, int maxDamage, Avatar avatar){
+    public EnemyShip(int health, int maxDamage, Avatar avatar){
         super(health, maxDamage, avatar);
     }
 
