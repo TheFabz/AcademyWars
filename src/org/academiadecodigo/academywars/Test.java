@@ -14,43 +14,45 @@ public class Test {
         Rectangle field = new Rectangle(10, 10 , 1280, 720);
         field.fill();
         field.setColor(Color.BLACK);
-        Boss[] bosses = new Boss[1000];
+        Enemy[] asteroids = new Enemy[5];
 
 
-        for(int i = 0; i < bosses.length; i++){
-            bosses[i] = new Boss(100, 40, EnemyFactory.EnemyFactory());
-            move(bosses[i]);
+        for(int i = 0; i < asteroids.length; i++){
+            double j = Math.random();
+            if(j > 0.7){
+                asteroids[i] = new Asteroids(100, 40, EnemyFactory.EnemyFactory(Enemies.ASTEROIDS));
+            } else if(j > 0.3){
+                asteroids[i] = new Asteroids(100, 40, EnemyFactory.EnemyFactory(Enemies.FIRE));
+            } else{
+                asteroids[i] = new Asteroids(100, 40, EnemyFactory.EnemyFactory(Enemies.SPACESHIP));
+            }
         }
 
-
-
-
-
-
-
-
+        for (int i = 0; i < asteroids.length; i++) {
+            move(asteroids[i]);
+        }
 
     }
 
-    public static void move(Enemy boss) throws InterruptedException {
-        while(boss.getAvatar().getY() < 690 && boss.getAvatar().getX() < 1250 &&  boss.getAvatar().getX() != 10) {
-            TimeUnit.MILLISECONDS.sleep(4);
+    public static void move(Enemy asteroids) throws InterruptedException {
+        while(asteroids.getAvatar().getY() < 670 && asteroids.getAvatar().getX() < 1250 &&  asteroids.getAvatar().getX() != 10) {
+            Thread.sleep(8);
             double move =  Math.random();
 
             if( move > 0.9){
-                boss.getAvatar().getEnemy().translate(4, 0);
-                boss.getAvatar().setX(4);
+                asteroids.getAvatar().getEnemy().translate(4, 0);
+                asteroids.getAvatar().setX(4);
                 continue;
             }
             if(move < 0.1){
-                boss.getAvatar().getEnemy().translate(-4, 0);
-                boss.getAvatar().setX(-4);
+                asteroids.getAvatar().getEnemy().translate(-4, 0);
+                asteroids.getAvatar().setX(-4);
                 continue;
             }
-            boss.getAvatar().getEnemy().translate(0, 4);
-            boss.getAvatar().setY(4);
+            asteroids.getAvatar().getEnemy().translate(0, 4);
+            asteroids.getAvatar().setY(4);
         }
-        boss.getAvatar().getEnemy().delete();
+        //asteroids.getAvatar().getEnemy().delete();
     }
 
 

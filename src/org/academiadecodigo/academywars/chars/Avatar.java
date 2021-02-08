@@ -1,26 +1,29 @@
 package org.academiadecodigo.academywars.chars;
 
+import org.academiadecodigo.academywars.chars.enemies.Enemy;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Avatar {
     //Fields
-    private Ellipse enemy;
+    private Picture enemy;
     private int x;
     private int y;
 
     //Constructor
-    public Avatar(int x, int y){
-        enemy = new Ellipse(x, y, 40, 40 );
+    public Avatar(int x, int y, String path){
+        enemy = new Picture(x, y, path );
         this.x = x;
         this.y = y;
-        enemy.fill();
-        enemy.setColor(Color.WHITE);
+        enemy.draw();
+        //enemy.fill();
+        //.setColor(Color.WHITE);
     }
 
     //Getters
-    public Ellipse getEnemy() {
+    public Picture getEnemy() {
         return enemy;
     }
 

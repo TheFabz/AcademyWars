@@ -11,22 +11,22 @@ public class Test2 {
         Rectangle field = new Rectangle(10, 10 , 1280, 720);
         field.fill();
         field.setColor(Color.WHITE);
-//        new Timer().scheduleAtFixedRate(new TimerTask(){
-//            @Override
-//            public void run(){
-//                System.out.println("tag" + "A Kiss every 5 seconds");
-//            }
-//        },0,5000);
-//
-//        new Timer().scheduleAtFixedRate(new TimerTask(){
-//            @Override
-//            public void run(){
-//                System.out.println("tag" + "A Kiss every 1 seconds");
-//            }
-//        },0,1000);
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                System.out.println("tag" + "A Kiss every 5 seconds");
+            }
+        },0,5000);
 
-        Asteroids asteroids = new Asteroids();
-        asteroids.avatar();
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                System.out.println("tag" + "A Kiss every 1 seconds");
+            }
+        },0,1000);
+
+//        Asteroids asteroids = new Asteroids();
+//        asteroids.avatar();
 
 
     }
