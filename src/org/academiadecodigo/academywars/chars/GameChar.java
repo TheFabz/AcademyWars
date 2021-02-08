@@ -6,6 +6,8 @@ public abstract class GameChar implements Destroyable{
     private int maxDamage;
     private boolean destroyed;
     private Avatar avatar;
+    private int x;
+    private int y;
 
     //Constructor
     public GameChar(int health, int maxDamage, Avatar avatar){
@@ -13,6 +15,7 @@ public abstract class GameChar implements Destroyable{
         this.maxDamage = maxDamage;
         this.destroyed = false;
         this.avatar = avatar;
+        //x = avatar.ge
     }
 
     //Getters
@@ -22,6 +25,10 @@ public abstract class GameChar implements Destroyable{
 
     public int getMaxDamage(){
         return maxDamage;
+    }
+
+    public Avatar getAvatar() {
+        return avatar;
     }
 
     @Override
