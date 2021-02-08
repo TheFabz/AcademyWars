@@ -1,5 +1,4 @@
 package org.academiadecodigo.academywars;
-import org.academiadecodigo.academywars.chars.enemies.Asteroids;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
