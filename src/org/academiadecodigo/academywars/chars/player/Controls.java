@@ -59,22 +59,20 @@ public class Controls implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if(keyboardEvent == turnLeft) {
-            spaceShipPosition.move(Direction.LEFT, spaceShipPosition.getSpeed());
+                spaceShipPosition.setTurningLeft(true);
+
         }if(keyboardEvent == turnRight){
-            spaceShipPosition.move(Direction.RIGHT, spaceShipPosition.getSpeed());
+            spaceShipPosition.setTurningRight(true);
         }
         if(keyboardEvent == turnUp){
-            spaceShipPosition.move(Direction.UP, spaceShipPosition.getSpeed());
+            spaceShipPosition.setTurningUp(true);
         }
         if(keyboardEvent == turnDown){
-            spaceShipPosition.move(Direction.DOWN, spaceShipPosition.getSpeed());
+            spaceShipPosition.setTurningDown(true);
         }
         if(keyboardEvent == fireShoot){
-            try {
-                spaceShipPosition.shoot();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+                spaceShipPosition.setShooting(true);
         }
 
 

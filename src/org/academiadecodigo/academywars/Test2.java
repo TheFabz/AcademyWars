@@ -45,7 +45,7 @@ public class Test2 {
         spaceShipPosition.drawSpaceShip();
         controls.activateArrowKeys();
         controls.activateSpaceKey();
-        spaceShipPosition.shoot();
+    //    spaceShipPosition.shoot();
 
     }
 }

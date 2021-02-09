@@ -16,7 +16,42 @@ public class CanvasTest {
         spaceShipPosition.drawSpaceShip();
         controls.activateArrowKeys();
         controls.activateSpaceKey();
-        spaceShipPosition.shoot();
+       // spaceShipPosition.shoot();
+
+        SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100),100,arena);
+
+
+
+
+        while (true){
+
+            if(spaceShipPosition.isTurningLeft()){
+                spaceShipPosition.turnLeft();
+            }
+
+            if(spaceShipPosition.isTurningRight())
+            {
+                spaceShipPosition.turnRight();
+            }
+
+            if(spaceShipPosition.isTurningDown()){
+                spaceShipPosition.turnDown();
+            }
+            if(spaceShipPosition.isTurningUp()){
+                spaceShipPosition.turnUp();
+            }
+
+
+
+
+           if(spaceShipPosition.isShooting()==true){
+               System.out.println("SHOOT");
+              spaceShipPosition.fireShoot();
+           }else{
+               System.out.println("NOT SHOOTING");
+               System.out.println("NOT TURNING LEFT");
+           }
+        }
 
 
 

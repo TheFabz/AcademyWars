@@ -8,14 +8,15 @@ import java.util.concurrent.TimeUnit;
 
 public class FireShootPosition extends Position {
 
-        private static final int WIDTH = 10;
-        private static final int HEIGHT = 50;
+        private static final int WIDTH = 1;
+        private static final int HEIGHT = 10;
         private int speed;
         private Arena arena;
         private Rectangle rectangle;
         private SpaceShipPosition spaceShipPosition;
         private int spaceShipCenterX;
         private int spaceShipCenterY;
+        private boolean isShooting;
 
         public FireShootPosition(int x, int y, Arena arena, SpaceShipPosition spaceShipPosition){
             super(x,y);
@@ -26,8 +27,9 @@ public class FireShootPosition extends Position {
             System.out.println(spaceShipCenterY);
             spaceShipCenterX = spaceShipPosition.getX()+spaceShipPosition.getWIDTH()/2;
             System.out.println(spaceShipCenterX);
-            rectangle = new Rectangle(spaceShipCenterX,spaceShipCenterY,WIDTH,HEIGHT);
-            drawFireShoot();
+            rectangle = new Rectangle(x,y,WIDTH,HEIGHT);
+            isShooting = true;
+
 
 
 
@@ -82,19 +84,32 @@ public class FireShootPosition extends Position {
             return speed;
         }
 
-
-    public void fireShoot() throws InterruptedException {
-
-
-        System.out.println("HEREHERE");
-
-        while(getY()>10) {
-            TimeUnit.SECONDS.sleep(100);
-            setY(getY()-speed);
-            rectangle.translate(0, -speed);
+        public void gunRecoil(int speed) throws InterruptedException {
+            spaceShipPosition.getRectangle().translate(0,+speed*4);
+            TimeUnit.MILLISECONDS.sleep(100);
+            spaceShipPosition.getRectangle().translate(0,-speed*4);
         }
 
 
 
+    public void actualShoot() throws InterruptedException {
+
+            gunRecoil(speed);
+
+        while(rectangle.getY()>0) {
+
+            System.out.println("SHOOT");
+            TimeUnit.MILLISECONDS.sleep(1);
+            setY(getY()-speed);
+
+            rectangle.translate(0, -speed);
+            drawFireShoot();
+        }
+
+
+    }
+
+    public void setShooting(boolean shooting) {
+        isShooting = shooting;
     }
 }
