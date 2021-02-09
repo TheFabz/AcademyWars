@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3072f8af-4e74-4ca3-b9c2-34d40089e9c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/Test2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/CanvasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/CanvasTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/Controls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/Controls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/FireShoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/FireShoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/SpaceShip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java" afterDir="false" />
-    </list>
+    <list default="true" id="3072f8af-4e74-4ca3-b9c2-34d40089e9c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +19,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
