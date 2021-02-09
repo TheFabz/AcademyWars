@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3072f8af-4e74-4ca3-b9c2-34d40089e9c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/Controls.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademyWars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AcademyWars.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Stage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Stage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/Test2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Angel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Angel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Avatar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Avatar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Controllable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Controllable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Destroyable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Destroyable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/GameChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/GameChar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Asteroids.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Asteroids.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Boss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Boss.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Enemies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Enemies.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/EnemyFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/EnemyFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/EnemyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/EnemyFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Fire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/Fire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/SpaceShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AcademyWars/org/academiadecodigo/academywars/chars/enemies/SpaceShip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/academiadecodigo/academywars/Test2.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1oDhqrBXwZZrEsbDkJMl5IIhj0Q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/academiadecodigo/academywars/chars/player/position" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.academiadecodigo.academywars.Test2" />
+      <module name="AcademyWars" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.academiadecodigo.academywars.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3072f8af-4e74-4ca3-b9c2-34d40089e9c1" name="Default Changelist" comment="" />
+      <created>1612827263781</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612827263781</updated>
+    </task>
+    <servers />
+  </component>
+</project>
