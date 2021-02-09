@@ -1,23 +1,23 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
-import org.academiadecodigo.bootcamp56.academywarstest.*;
+import org.academiadecodigo.academywars.chars.player.Arena;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 import java.util.concurrent.TimeUnit;
 
-public class FireShootPosition extends org.academiadecodigo.bootcamp56.academywarstest.position.Position {
+public class FireShootPosition extends Position {
 
         private static final int WIDTH = 10;
         private static final int HEIGHT = 50;
         private int speed;
         private Arena arena;
         private Rectangle rectangle;
-        private org.academiadecodigo.bootcamp56.academywarstest.position.SpaceShipPosition spaceShipPosition;
+        private SpaceShipPosition spaceShipPosition;
         private int spaceShipCenterX;
         private int spaceShipCenterY;
 
-        public FireShootPosition(int x, int y, Arena arena, org.academiadecodigo.bootcamp56.academywarstest.position.SpaceShipPosition spaceShipPosition){
+        public FireShootPosition(int x, int y, Arena arena, SpaceShipPosition spaceShipPosition){
             super(x,y);
             this.arena = arena;
             this.spaceShipPosition = spaceShipPosition;

@@ -5,10 +5,10 @@ import java.awt.*;
 public class FireShoot {
 
     private Color color;
-    private org.academiadecodigo.bootcamp56.academywarstest.Arena arena;
+    private Arena arena;
     private Direction direction;
 
-    public FireShoot(org.academiadecodigo.bootcamp56.academywarstest.Arena arena){
+    public FireShoot(Arena arena){
 
     }
 }

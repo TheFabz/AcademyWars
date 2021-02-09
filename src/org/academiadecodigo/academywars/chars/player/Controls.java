@@ -1,6 +1,6 @@
 package org.academiadecodigo.academywars.chars.player;
 
-import org.academiadecodigo.bootcamp56.academywarstest.position.SpaceShipPosition;
+import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -16,7 +16,7 @@ public class Controls implements KeyboardHandler {
     private KeyboardEvent turnDown;
     private KeyboardEvent fireShoot;
 
-    Controls(SpaceShipPosition platform){
+   public Controls(SpaceShipPosition platform){
         this.spaceShipPosition = platform;
 
         keyboard = new Keyboard(this);

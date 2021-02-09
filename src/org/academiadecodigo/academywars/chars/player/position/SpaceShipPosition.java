@@ -1,38 +1,35 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
-import org.academiadecodigo.bootcamp56.academywarstest.Arena;
-import org.academiadecodigo.bootcamp56.academywarstest.Direction;
-import org.academiadecodigo.bootcamp56.academywarstest.SpaceShip;
+import org.academiadecodigo.academywars.chars.player.Arena;
+import org.academiadecodigo.academywars.chars.player.Direction;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SpaceShipPosition extends Position{
 
     private static final int WIDTH = 40;
     private static final int HEIGHT = 20;
-    private SpaceShip spaceShip;
     private int speed;
     private Arena arena;
-    private Rectangle rectangle;
+    private Picture rectangle;
     private Direction previousDir;
     private Direction boundaryDirection;
 
-   public SpaceShipPosition(int x, int y, Arena arena, SpaceShip spaceShip){
+   public SpaceShipPosition(int x, int y, Arena arena){
         super(x,y);
         this.arena = arena;
-        this.spaceShip = spaceShip;
+
         speed = 10;
         previousDir = Direction.UPRIGHT;
         boundaryDirection = Direction.DOWN;
 
-        rectangle = new Rectangle(x,y,WIDTH,HEIGHT);
+        rectangle = new Picture(x,y,"resources/8BitSpaceShip.png");
 
     }
 
     public void drawSpaceShip(){
         rectangle.draw();
-        rectangle.setColor(Color.YELLOW);
-        rectangle.fill();
 
     }
 

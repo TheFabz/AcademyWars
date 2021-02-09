@@ -7,8 +7,8 @@ public class Arena {
 
     private static final int PADDING=10;
     private Rectangle field;
-    private static final int FIELD_WIDTH = 200;
-    private static final int FIELD_HEIGHT = 400;
+    private static final int FIELD_WIDTH = 1280;
+    private static final int FIELD_HEIGHT = 720;
 
     public Arena(){
         field = new Rectangle(PADDING,PADDING, FIELD_WIDTH,FIELD_HEIGHT);

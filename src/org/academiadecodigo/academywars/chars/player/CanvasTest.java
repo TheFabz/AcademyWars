@@ -1,16 +1,16 @@
 package org.academiadecodigo.academywars.chars.player;
 
-import org.academiadecodigo.bootcamp56.academywarstest.position.SpaceShipPosition;
+
+import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
 
 public class CanvasTest {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("here");
 
-        org.academiadecodigo.bootcamp56.academywarstest.Arena arena = new org.academiadecodigo.bootcamp56.academywarstest.Arena();
-        SpaceShip spaceShip = new SpaceShip(arena);
+        Arena arena = new Arena();
 
-        SpaceShipPosition spaceShipPosition = new SpaceShipPosition((arena.getFieldWidth()/2),arena.getFieldHeight()/2,arena,spaceShip);
+        SpaceShipPosition spaceShipPosition = new SpaceShipPosition((arena.getFieldWidth()/2),arena.getFieldHeight()/2,arena);
         Controls controls = new Controls(spaceShipPosition);
 
         spaceShipPosition.drawSpaceShip();
