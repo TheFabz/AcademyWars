@@ -4,15 +4,25 @@ import org.academiadecodigo.academywars.chars.player.Controls;
 import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Test2 {
+<<<<<<< HEAD
     public static void main(String[] args) throws InterruptedException {
         Rectangle field = new Rectangle(10, 10 , 1280, 720);
         field.fill();
         field.setColor(Color.WHITE);
+=======
+    public static void main(String[] args) {
+//        Rectangle field = new Rectangle(10, 10 , 1280, 720);
+//        field.fill();
+//        field.setColor(Color.WHITE);
+        Picture pic = new Picture(10, 10, "resources/teste.gif");
+
+>>>>>>> 4b4cecf278eb145906e2cb83918e9b00028a5ada
         new Timer().scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){

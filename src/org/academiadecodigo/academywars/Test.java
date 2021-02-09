@@ -14,7 +14,7 @@ public class Test {
         Rectangle field = new Rectangle(10, 10 , 1280, 720);
         field.fill();
         field.setColor(Color.BLACK);
-        Enemy[] asteroids = new Enemy[5];
+        Enemy[] asteroids = new Enemy[1000];
 
 
         for(int i = 0; i < asteroids.length; i++){
@@ -52,7 +52,7 @@ public class Test {
             asteroids.getAvatar().getEnemy().translate(0, 4);
             asteroids.getAvatar().setY(4);
         }
-        //asteroids.getAvatar().getEnemy().delete();
+        asteroids.getAvatar().getEnemy().delete();
     }
 
 
