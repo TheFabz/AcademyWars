@@ -11,41 +11,32 @@ import java.util.TimerTask;
 
 public class Test2 {
     public static void main(String[] args) throws InterruptedException {
-        Rectangle field = new Rectangle(10, 10 , 1280, 720);
-        field.fill();
-        field.setColor(Color.WHITE);
-//        Rectangle field = new Rectangle(10, 10 , 1280, 720);
-//        field.fill();
-//        field.setColor(Color.WHITE);
-        Picture pic = new Picture(10, 10, "resources/teste.gif");
+        Move move1 = new Move(1000, "Test1");
+        Move move2 = new Move(3000, "Test2");
+        Move move3 = new Move(500, "test3");
 
-        new Timer().scheduleAtFixedRate(new TimerTask(){
-            @Override
-            public void run(){
-                System.out.println("tag" + "A Kiss every 5 seconds");
+    }
+
+
+
+
+
+    public static class Move extends Thread{
+        //Fields
+        private int delay;
+        private String test;
+
+        //Contructor
+        public Move(int delay, String test){
+            this.delay = delay;
+            this.test = test;
+        }
+
+        public void run(){
+            while (true){
+                try{sleep(delay);} catch (Exception error){}
+                System.out.println(test);
             }
-        },0,5000);
-
-        new Timer().scheduleAtFixedRate(new TimerTask(){
-            @Override
-            public void run(){
-                System.out.println("tag" + "A Kiss every 1 seconds");
-            }
-        },0,1000);
-
-//        Asteroids asteroids = new Asteroids();
-//        asteroids.avatar();
-        System.out.println("here");
-
-        Arena arena = new Arena();
-
-        SpaceShipPosition spaceShipPosition = new SpaceShipPosition((arena.getFieldWidth()/2),arena.getFieldHeight()/2,arena);
-        Controls controls = new Controls(spaceShipPosition);
-
-        spaceShipPosition.drawSpaceShip();
-        controls.activateArrowKeys();
-        controls.activateSpaceKey();
-        spaceShipPosition.shoot();
-
+        }
     }
 }
