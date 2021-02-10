@@ -7,10 +7,13 @@ public class FireShoot {
     private Color color;
     private Arena arena;
     private Direction direction;
+    private int time;
 
     public FireShoot(Arena arena){
-
+        this. arena = arena;
+        time = 100;
     }
+
 }
 
 

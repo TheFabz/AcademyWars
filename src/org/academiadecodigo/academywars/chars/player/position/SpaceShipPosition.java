@@ -2,6 +2,7 @@ package org.academiadecodigo.academywars.chars.player.position;
 
 import org.academiadecodigo.academywars.chars.player.Arena;
 import org.academiadecodigo.academywars.chars.player.Direction;
+import org.academiadecodigo.academywars.chars.player.threadsPlayer.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.concurrent.TimeUnit;
@@ -61,64 +62,32 @@ public class SpaceShipPosition extends Position{
         switch (dir){
             case LEFT:
 
-                if(arena.getField().getX() != getX()) {
-
-                    while(turnTimerLeft !=0) {
-
-                        TimeUnit.MILLISECONDS.sleep(10);
-                        setX(getX()-1);
-
-                        rectangle.translate(-1, 0);
-                        drawSpaceShip();
-                        turnTimerLeft--;
-                    }
-                    turnTimerLeft =speed;
-
-                }
+                ThreadsShipTurnLeft threadTurnLeft = new ThreadsShipTurnLeft(1, this, arena);
+                threadTurnLeft.start();
+                turnTimerLeft = speed;
                 return;
 
+
             case RIGHT:
-                if(arena.getField().getX()+arena.getFieldWidth() != getX()+WIDTH) {
-
-                    while (turnTimerRight != 0) {
-
-                        TimeUnit.MILLISECONDS.sleep(10);
-                        setX(getX() + 1);
-                        rectangle.translate(+1, 0);
-                        drawSpaceShip();
-                        turnTimerRight--;
-                    }
-                    turnTimerRight = speed;
-                }
+                ThreadsShipTurnRight threadsTurnRight = new ThreadsShipTurnRight(1, this, arena);
+                threadsTurnRight.start();
+                turnTimerRight = speed;
                 return;
 
             case DOWN:
-                if(arena.getField().getY()+arena.getFieldHeight() != getY()+HEIGHT) {
 
-                    while(turnTimerDown !=0) {
-                        TimeUnit.MILLISECONDS.sleep(10);
-                    setY(getY()+1);
-                    rectangle.translate(0,1);
-                    drawSpaceShip();
-                    turnTimerDown--;
-
-                }
-                    turnTimerDown =speed;
-                }
+                ThreadsShipTurnDown threadsTurnDown = new ThreadsShipTurnDown(1, this, arena);
+                threadsTurnDown.start();
+                turnTimerDown = speed;
                 return;
 
 
             case UP:
-                if(arena.getField().getY() != getY()) {
-                    while(turnTimerUp !=0) {
-                        TimeUnit.MILLISECONDS.sleep(10);
-                        setY(getY() - 1);
-                    rectangle.translate(0, -1);
-                    drawSpaceShip();
-                    turnTimerUp--;
-                }
-                    turnTimerUp =speed;
-                }
+
+                ThreadsShipTurnUp threadUp = new ThreadsShipTurnUp(1, this, arena);
+                threadUp.start();
+                turnTimerUp =speed;
+
                 return;
         }
     }
@@ -161,6 +130,9 @@ public class SpaceShipPosition extends Position{
         move(RIGHT,speed);
 
     }
+
+
+
     public void turnDown() throws InterruptedException {
 
         isTurningDown = false;
@@ -177,14 +149,14 @@ public class SpaceShipPosition extends Position{
 
     }
 
-
     public void setTurningLeft(boolean turningLeft) {
         isTurningLeft = turningLeft;
     }
-
     public void setTurningRight(boolean turningRight) {
         isTurningRight = turningRight;
     }
+
+
 
     public void setTurningDown(boolean turningDown) {
         isTurningDown = turningDown;
@@ -194,7 +166,10 @@ public class SpaceShipPosition extends Position{
         isTurningUp = turningUp;
     }
 
+    public void reboot(){
 
+
+    }
 
 
     public void setShooting(boolean shooting) {
@@ -225,6 +200,47 @@ public class SpaceShipPosition extends Position{
         return rectangle;
     }
 
+    public FireShootPosition getShoot() {
+        return shoot;
+    }
 
+    public void setTurnTimerLeft(int turnTimerLeft) {
+        this.turnTimerLeft = turnTimerLeft;
+    }
+
+    public int getTurnTimerLeft() {
+        return turnTimerLeft;
+    }
+
+    public int getTurnTimerDown() {
+        return turnTimerDown;
+    }
+
+    public int getTurnTimerRight() {
+        return turnTimerRight;
+    }
+
+    public void setTurnTimerRight(int turnTimerRight) {
+        this.turnTimerRight = turnTimerRight;
+    }
+
+    public void setTurnTimerUp(int turnTimerUp) {
+        this.turnTimerUp = turnTimerUp;
+    }
+
+
+    public int getTurnTimerUp() {
+        return turnTimerUp;
+    }
+
+    public int getGetTurnTimerDown() {
+        return getTurnTimerDown;
+    }
+
+    public void setTurnTimerDown(int turnTimerDown) {
+        this.turnTimerDown = turnTimerDown;
+    }
 
 }
+
+

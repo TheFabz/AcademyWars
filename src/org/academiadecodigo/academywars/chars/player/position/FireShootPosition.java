@@ -1,6 +1,7 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
 import org.academiadecodigo.academywars.chars.player.Arena;
+import org.academiadecodigo.academywars.chars.player.threadsPlayer.ThreadsShoot;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
@@ -8,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class FireShootPosition extends Position {
 
-        private static final int WIDTH = 1;
-        private static final int HEIGHT = 10;
+        private static final int WIDTH = 5;
+        private static final int HEIGHT = 20;
         private int speed;
         private Arena arena;
         private Rectangle rectangle;
@@ -37,7 +38,7 @@ public class FireShootPosition extends Position {
 
         public void drawFireShoot(){
             rectangle.draw();
-            rectangle.setColor(Color.RED);
+            rectangle.setColor(Color.WHITE);
             rectangle.fill();
         }
 
@@ -93,10 +94,13 @@ public class FireShootPosition extends Position {
 
 
     public void actualShoot() throws InterruptedException {
-
             gunRecoil(speed);
+        ThreadsShoot thread2 = new ThreadsShoot(1, this);
+        thread2.start();
 
-        while(rectangle.getY()>0) {
+
+
+       /* while(rectangle.getY()>0) {
 
             System.out.println("SHOOT");
             TimeUnit.MILLISECONDS.sleep(1);
@@ -105,11 +109,16 @@ public class FireShootPosition extends Position {
             rectangle.translate(0, -speed);
             drawFireShoot();
         }
-
+        rectangle.delete();
+*/
 
     }
 
     public void setShooting(boolean shooting) {
         isShooting = shooting;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
     }
 }

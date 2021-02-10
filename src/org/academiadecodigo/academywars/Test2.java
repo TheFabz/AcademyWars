@@ -40,12 +40,12 @@ public class Test2 {
         Arena arena = new Arena();
 
         SpaceShipPosition spaceShipPosition = new SpaceShipPosition((arena.getFieldWidth()/2),arena.getFieldHeight()/2,arena);
-        Controls controls = new Controls(spaceShipPosition);
-
+       // Controls controls = new Controls(spaceShipPosition);
+/*
         spaceShipPosition.drawSpaceShip();
         controls.activateArrowKeys();
         controls.activateSpaceKey();
-    //    spaceShipPosition.shoot();
+    //    spaceShipPosition.shoot();*/
 
     }
 }
