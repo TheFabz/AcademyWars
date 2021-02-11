@@ -2,29 +2,28 @@ package org.academiadecodigo.academywars.chars.player;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Arena {
 
     private static final int PADDING=10;
-    private Rectangle field;
-    private static final int FIELD_WIDTH = 720;
-    private static final int FIELD_HEIGHT = 1280;
+    private Picture field;
+    private static final int FIELD_WIDTH = 1280;
+    private static final int FIELD_HEIGHT = 720;
 
     public Arena(){
-        field = new Rectangle(PADDING,PADDING, FIELD_WIDTH,FIELD_HEIGHT);
+        field = new Picture(PADDING,PADDING, "resources/space.jpeg");
         initArena();
     }
 
 
     public void initArena(){
         field.draw();
-        field.fill();
-        field.setColor(Color.BLACK);
 
 
     }
 
-    public Rectangle getField() {
+    public Picture getField() {
         return field;
     }
 

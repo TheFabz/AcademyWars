@@ -35,20 +35,22 @@ public class SpaceShipPosition extends Position{
         super(x,y);
         this.arena = arena;
 
-        speed = 20;
+
         previousDir = Direction.UPRIGHT;
         boundaryDirection = Direction.DOWN;
         isShooting = false;
-        isTurningLeft = false;
-        isTurningRight = false;
-        isTurningDown =false;
-        isTurningUp = false;
+
         rectangle = new Picture(x,y,"resources/8BitSpaceShip.png");
+
+       speed = 20;
+       isTurningLeft = false;
+       isTurningRight = false;
+       isTurningDown =false;
+       isTurningUp = false;
         turnTimerLeft = speed;
         turnTimerRight = speed;
         turnTimerDown = speed;
         turnTimerUp = speed;
-
 
     }
 
@@ -104,7 +106,13 @@ public class SpaceShipPosition extends Position{
         return HEIGHT;
     }
 
+    public Picture getRectangle() {
+        return rectangle;
+    }
 
+    public FireShootPosition getShoot() {
+        return shoot;
+    }
 
     public void fireShoot() throws InterruptedException {
 
@@ -115,63 +123,6 @@ public class SpaceShipPosition extends Position{
 
     }
 
-    public void turnLeft() throws InterruptedException {
-
-        isTurningLeft = false;
-
-        move(LEFT,speed);
-
-    }
-
-    public void turnRight() throws InterruptedException {
-
-        isTurningRight = false;
-
-        move(RIGHT,speed);
-
-    }
-
-
-
-    public void turnDown() throws InterruptedException {
-
-        isTurningDown = false;
-
-        move(DOWN,speed);
-
-    }
-
-    public void turnUp() throws InterruptedException {
-
-        isTurningUp = false;
-
-        move(UP,speed);
-
-    }
-
-    public void setTurningLeft(boolean turningLeft) {
-        isTurningLeft = turningLeft;
-    }
-    public void setTurningRight(boolean turningRight) {
-        isTurningRight = turningRight;
-    }
-
-
-
-    public void setTurningDown(boolean turningDown) {
-        isTurningDown = turningDown;
-    }
-
-    public void setTurningUp(boolean turningUp) {
-        isTurningUp = turningUp;
-    }
-
-    public void reboot(){
-
-
-    }
-
-
     public void setShooting(boolean shooting) {
         isShooting = shooting;
     }
@@ -180,38 +131,74 @@ public class SpaceShipPosition extends Position{
         return isShooting;
     }
 
-    public boolean isTurningLeft(){
-       return isTurningLeft;
+
+
+    //TURN METHODS
+
+    public void turnUp() throws InterruptedException {
+
+        isTurningUp = false;
+
+        move(UP,speed);
+
+    }
+    public void turnDown() throws InterruptedException {
+
+        isTurningDown = false;
+
+        move(DOWN,speed);
+
+    }
+    public void turnRight() throws InterruptedException {
+
+        isTurningRight = false;
+
+        move(RIGHT,speed);
+
+    }
+    public void turnLeft() throws InterruptedException {
+
+        isTurningLeft = false;
+
+        move(LEFT,speed);
+
+    }
+    //SET TURNS
+
+    public void setTurningUp(boolean turningUp) {
+        isTurningUp = turningUp;
+    }
+    public void setTurningDown(boolean turningDown) {
+        isTurningDown = turningDown;
+    }
+    public void setTurningRight(boolean turningRight) {
+        isTurningRight = turningRight;
+    }
+    public void setTurningLeft(boolean turningLeft) {
+        isTurningLeft = turningLeft;
     }
 
-    public boolean isTurningRight() {
-        return isTurningRight;
-    }
-
-    public boolean isTurningDown() {
-        return isTurningDown;
-    }
+    //BOOLEANS FOR DIRECTIONS
 
     public boolean isTurningUp() {
         return isTurningUp;
     }
-
-    public Picture getRectangle() {
-        return rectangle;
+    public boolean isTurningDown() {
+        return isTurningDown;
+    }
+    public boolean isTurningRight() {
+        return isTurningRight;
+    }
+    public boolean isTurningLeft(){
+        return isTurningLeft;
     }
 
-    public FireShootPosition getShoot() {
-        return shoot;
-    }
+    //GET TURNTIMERS
 
-    public void setTurnTimerLeft(int turnTimerLeft) {
-        this.turnTimerLeft = turnTimerLeft;
-    }
 
-    public int getTurnTimerLeft() {
-        return turnTimerLeft;
+    public int getTurnTimerUp() {
+        return turnTimerUp;
     }
-
     public int getTurnTimerDown() {
         return turnTimerDown;
     }
@@ -220,25 +207,25 @@ public class SpaceShipPosition extends Position{
         return turnTimerRight;
     }
 
-    public void setTurnTimerRight(int turnTimerRight) {
-        this.turnTimerRight = turnTimerRight;
+    public int getTurnTimerLeft() {
+        return turnTimerLeft;
     }
+
+
+    //SET TURNTIMERS
 
     public void setTurnTimerUp(int turnTimerUp) {
         this.turnTimerUp = turnTimerUp;
     }
 
-
-    public int getTurnTimerUp() {
-        return turnTimerUp;
-    }
-
-    public int getGetTurnTimerDown() {
-        return getTurnTimerDown;
-    }
-
     public void setTurnTimerDown(int turnTimerDown) {
         this.turnTimerDown = turnTimerDown;
+    }
+    public void setTurnTimerRight(int turnTimerRight) {
+        this.turnTimerRight = turnTimerRight;
+    }
+    public void setTurnTimerLeft(int turnTimerLeft) {
+        this.turnTimerLeft = turnTimerLeft;
     }
 
 }

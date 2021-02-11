@@ -46,14 +46,6 @@ public class ThreadsShipTurnLeft extends Thread {
         }
 
 
-
-
-               /*    shoot.drawFireShoot();
-                    System.out.println("ADEUS");
-                    shoot.setY(shoot.getY()- shoot.getSpeed());
-                    shoot.getRectangle().translate(0, -shoot.getSpeed());
-*/
-
 }
 
 

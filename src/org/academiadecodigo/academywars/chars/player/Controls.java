@@ -53,9 +53,6 @@ public class Controls implements KeyboardHandler {
 
     }
 
-
-
-
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         if(keyboardEvent == turnLeft) {
@@ -75,10 +72,6 @@ public class Controls implements KeyboardHandler {
                 spaceShipPosition.setShooting(true);
         }
 
-
-
-
-
     }
 
     @Override
@@ -86,23 +79,4 @@ public class Controls implements KeyboardHandler {
 
     }
 
-
-    public Keyboard getKeyboard() {
-        return keyboard;
-    }
-
-    public KeyboardEvent getKeyEvent() {
-        return turnLeft;
-    }
-    public KeyboardEvent getTurnRight() {
-        return turnRight;
-    }
-
-    public KeyboardEvent getTurnDown() {
-        return turnDown;
-    }
-
-    public KeyboardEvent getTurnUp() {
-        return turnUp;
-    }
 }

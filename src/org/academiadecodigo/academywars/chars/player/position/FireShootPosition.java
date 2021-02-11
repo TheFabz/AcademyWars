@@ -42,45 +42,6 @@ public class FireShootPosition extends Position {
             rectangle.fill();
         }
 
-    /*       public void move(Direction dir, int speed) {
-
-             switch (dir) {
-           /*  case LEFT:
-                     if(arena.getField().getX() != getX()) {
-                         setX(getX() - speed);
-                         rectangle.translate(-speed,0);
-                         return;
-                     }
-                     return;
-
-                 case RIGHT:
-                     if(arena.getField().getX()+arena.getFieldWidth() != getX()+WIDTH) {
-                         setX(getX() +speed);
-                         rectangle.translate(speed,0);
-                         return;
-                     }
-                     return;
-                 case DOWN:
-                     if(arena.getField().getY()+arena.getFieldHeight() != getY()+HEIGHT) {
-                         setY(getY()+speed);
-                         rectangle.translate(0,speed);
-                         return;
-                     }
-                     return;
-
-
-                 case UP: {
-                     if(rectangle.getY()<=0){
-                         return;
-                     }
-                       System.out.println("here");
-                     setY(getY()-speed);
-                     rectangle.translate(0, -speed);
-                     move(Direction.UP,speed);
-                 }
-             }
-         }
- */
         public int getSpeed() {
             return speed;
         }
@@ -98,19 +59,6 @@ public class FireShootPosition extends Position {
         ThreadsShoot thread2 = new ThreadsShoot(1, this);
         thread2.start();
 
-
-
-       /* while(rectangle.getY()>0) {
-
-            System.out.println("SHOOT");
-            TimeUnit.MILLISECONDS.sleep(1);
-            setY(getY()-speed);
-
-            rectangle.translate(0, -speed);
-            drawFireShoot();
-        }
-        rectangle.delete();
-*/
 
     }
 
