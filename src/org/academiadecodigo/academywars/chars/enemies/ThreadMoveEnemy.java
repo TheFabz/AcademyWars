@@ -20,6 +20,10 @@ public class ThreadMoveEnemy extends Thread{
     public void run(){
         while(true){
             try {sleep(delay);} catch (Exception error){}
+            if(enemy.isDestroyed()){
+                //enemy.getAvatar().setDeleted();
+                enemy.getAvatar().getEnemy().delete();
+            }
 
             if(enemy.getAvatar().getY() >= 670){
                 enemy.getAvatar().setDeleted();

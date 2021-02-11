@@ -16,7 +16,7 @@ public class EnemyFactory {
             case ENEMYSHIP:
                 return new EnemyShip(100, 40, new Avatar(x, y,"resources/enemyship.png", 2));
             default:
-                return new Asteroids(100, 40, new Avatar(x, y, "resources/fire.png", 2));
+                return new Fire(100, 40, new Avatar(x, y, "resources/fire.png", 2));
         }
     }
 
