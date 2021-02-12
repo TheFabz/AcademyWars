@@ -3,81 +3,69 @@ package org.academiadecodigo.academywars.chars.player.position;
 import org.academiadecodigo.academywars.chars.enemies.Enemies;
 import org.academiadecodigo.academywars.chars.enemies.Enemy;
 
+import java.awt.*;
+
 public class PositionCollider {
 
-        private SpaceShipPosition ship;
-        private Enemy enemy;
-        private boolean isColliding;
-        private FireShootPosition fire;
+    private SpaceShipPosition ship;
+    private Enemy enemy;
+    private boolean isColliding;
+    private FireShootPosition fire;
 
 
-        //COLIDING WITH ENEMIES
-        public PositionCollider(SpaceShipPosition ship, Enemy enemy) {
-            this.ship = ship;
-            this.enemy = enemy;
-            this.isColliding = false;
-        }
+    //COLIDING WITH ENEMIES
+    public PositionCollider(SpaceShipPosition ship, Enemy enemy) {
+        this.ship = ship;
+        this.enemy = enemy;
+        this.isColliding = false;
+    }
 
-        //COLIDING ENEMY WITH FIRESHOOT
+    //COLIDING ENEMY WITH FIRESHOOT
 
-        public PositionCollider(SpaceShipPosition ship, Enemy enemy, FireShootPosition fire) {
-            this.ship = ship;
-            this.enemy = enemy;
-            this.isColliding = false;
-            this.fire = fire;
-        }
-
-
+    public PositionCollider(SpaceShipPosition ship, Enemy enemy, FireShootPosition fire) {
+        this.ship = ship;
+        this.enemy = enemy;
+        this.isColliding = false;
+        this.fire = fire;
+    }
 
 
-        public void collideWithEnemy() {
-            System.out.println("imhereee");
-            int shipY = ship.getY();
-            int enemyY = enemy.getAvatar().getY()+enemy.getAvatar().getHeight();
+    public void collideWithEnemy(Enemy enemy) {
 
-            if(shipY != enemyY){return;}
+        int padding = 30;
+        int shipX = ship.getX();
+        int enemyX = enemy.getAvatar().getX();
+        System.out.println();
+        int shipY = ship.getY();
+        int enemyY = enemy.getAvatar().getY();
 
-            for(int spaceShipSurf = this.ship.getX(); spaceShipSurf <ship.getX() + ship.getWIDTH(); spaceShipSurf++) {
+        /*
+          System.out.println("enemyY: "+enemyY);
+         System.out.println("                ShipX: :"+shipX);
+           System.out.println("                enemyX: "+enemyX);
+         if (shipY == enemyY) {
+            System.out.println("COLIDER YYYYYYYYYYYYYYYYYYYYY");
+        if(enemyX == shipX){
+        */
 
-                for(int enemySurf = enemy.getAvatar().getX(); enemySurf<enemy.getAvatar().getWidth()+enemy.getAvatar().getX(); enemySurf++){
-                    if(spaceShipSurf==enemySurf){
-                        setColliding(true);
-                    }
-                }
-            }
-
-        }
+      //  if (shipX >= enemyX && shipX <= enemyX + enemy.getAvatar().getWidth()) {
+            if(shipX+padding+ship.getWIDTH()>=enemyX-padding && shipX + ship.getWIDTH()-padding <= enemyX+enemy.getAvatar().getWidth()+ship.getWIDTH()+padding){
+            if (shipY <= enemyY+enemy.getAvatar().getHeight() && shipY+ship.getHEIGHT() >= enemyY-padding) {
 
 
-    public void collideEnemyWithFire() {
-        System.out.println("imhereee");
-
-        int fireY = fire.getY();
-        int enemyY = enemy.getAvatar().getY()+enemy.getAvatar().getHeight();
-
-        if(fireY != enemyY){return;}
-
-        for(int fireshootSurf = this.fire.getX(); fireshootSurf <ship.getX() + fire.getRectangle().getWidth(); fireshootSurf++) {
-
-            for(int enemySurf = enemy.getAvatar().getX(); enemySurf<enemy.getAvatar().getWidth()+enemy.getAvatar().getX(); enemySurf++){
-                if(fireshootSurf==enemySurf){
-                    setColliding(true);
-                }
+                System.out.println("COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                isColliding = true;
             }
         }
 
+       //
     }
 
 
 
-
-
-
-
-
-        public void setColliding(boolean colliding) {
-            this.isColliding = colliding;
-        }
+    public void setColliding(boolean colliding) {
+        this.isColliding = colliding;
+    }
 
     public boolean isColliding() {
         return isColliding;

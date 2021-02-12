@@ -23,21 +23,20 @@ public class ThreadsShipTurnDown extends Thread {
     public void run() {
 
 
-        while (ship.getTurnTimerDown() != 0) {
+        while (ship.getShipMovement().getTurnTimerDown() != 0) {
             try {
                 sleep(delay);
             } catch (Exception e) {
                 System.out.println(e);
             }
-            if (ship.getRectangle().getY() + ship.getRectangle().getHeight() != arena.getFieldWidth()) {
-                if (ship.getTurnTimerDown() >= 0) {
-                    System.out.println("HERE");
-                    ship.setY(ship.getY() + 1);
-
+            if (ship.getRectangle().getY() + ship.getRectangle().getHeight() != 800){
+                if (ship.getShipMovement().getTurnTimerDown() >= 0) {
+                 //   System.out.println("HERE");
+                    ship.setY(ship.getRectangle().getY() + 1);
                     ship.getRectangle().translate(0, 1);
                     ship.drawSpaceShip();
-                    ship.setTurnTimerDown(ship.getTurnTimerDown() - 1);
-                    System.out.println(ship.getTurnTimerDown());
+                    ship.getShipMovement().setTurnTimerDown(ship.getShipMovement().getTurnTimerDown() - 1);
+                //    System.out.println(ship.getShipMovement().getTurnTimerDown());
 
                 }
             }

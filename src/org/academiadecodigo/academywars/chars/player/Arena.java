@@ -8,12 +8,14 @@ public class Arena {
 
     private static final int PADDING=10;
     private Picture field;
-    private static final int FIELD_WIDTH = 1280;
-    private static final int FIELD_HEIGHT = 720;
+    private int FIELD_WIDTH;
+    private int FIELD_HEIGHT;
 
     public Arena(){
         field = new Picture(PADDING,PADDING, "resources/space.jpeg");
         initArena();
+        FIELD_HEIGHT = field.getHeight()+PADDING;
+        FIELD_WIDTH = field.getWidth()+PADDING;
     }
 
 

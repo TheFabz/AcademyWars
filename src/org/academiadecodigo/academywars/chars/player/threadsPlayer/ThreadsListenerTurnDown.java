@@ -16,11 +16,11 @@ public class ThreadsListenerTurnDown extends Thread{
         while (true) {
             try{ sleep(delay); }catch(Exception e){ System.out.println(e); }
 
-            if(ship.isTurningDown()){
+            if(ship.getShipMovement().isTurningDown()){
 
-                System.out.println("OLA");
+            //    System.out.println("OLA");
                 try {
-                    ship.turnDown();
+                    ship.getShipMovement().turnDown();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

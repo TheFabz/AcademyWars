@@ -22,7 +22,6 @@ public class ThreadsHover extends Thread {
                     ship.setY(ship.getY()-ship.getSpeed());
                     ship.getRectangle().translate(0, -ship.getSpeed());
 
-                    ship.reboot();
                 }
 
             }

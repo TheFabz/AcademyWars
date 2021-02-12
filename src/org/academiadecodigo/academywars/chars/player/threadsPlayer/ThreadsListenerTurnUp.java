@@ -16,11 +16,11 @@ public class ThreadsListenerTurnUp extends Thread{
         while (true) {
             try{ sleep(delay); }catch(Exception e){ System.out.println(e); }
 
-            if(ship.isTurningUp()){
+            if(ship.getShipMovement().isTurningUp()){
 
-                System.out.println("OLA");
+               // System.out.println("OLA");
                 try {
-                    ship.turnUp();
+                    ship.getShipMovement().turnUp();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

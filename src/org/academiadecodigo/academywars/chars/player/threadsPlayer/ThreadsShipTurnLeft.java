@@ -30,17 +30,18 @@ public class ThreadsShipTurnLeft extends Thread {
             } catch (Exception e) {
                 System.out.println(e);
             }
+            if (ship.getRectangle().getX() != arena.getPADDING()) {
 
-            if (ship.getTurnTimerLeft() >= 0) {
+            if (ship.getShipMovement().getTurnTimerLeft() >= 0) {
 
                 ship.setX(ship.getX() - 1);
 
                 ship.getRectangle().translate(-1, 0);
                 ship.drawSpaceShip();
-                ship.setTurnTimerLeft(ship.getTurnTimerLeft() - 1);
-                System.out.println(ship.getTurnTimerLeft());
+                ship.getShipMovement().setTurnTimerLeft(ship.getShipMovement().getTurnTimerLeft() - 1);
+    //            System.out.println(ship.getShipMovement().getTurnTimerLeft());
 
-            }
+            }}
         }
 
         }

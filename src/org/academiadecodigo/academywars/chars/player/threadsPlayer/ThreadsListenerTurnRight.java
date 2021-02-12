@@ -16,11 +16,11 @@ public class ThreadsListenerTurnRight extends Thread{
         while (true) {
             try{ sleep(delay); }catch(Exception e){ System.out.println(e); }
 
-            if(ship.isTurningRight()){
+            if(ship.getShipMovement().isTurningRight()){
 
-                System.out.println("OLA");
+         //       System.out.println("OLA");
                 try {
-                    ship.turnRight();
+                    ship.getShipMovement().turnRight();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

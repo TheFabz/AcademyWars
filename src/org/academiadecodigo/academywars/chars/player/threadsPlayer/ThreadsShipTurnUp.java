@@ -28,18 +28,18 @@ public class ThreadsShipTurnUp extends Thread {
             } catch (Exception e) {
                 System.out.println(e);
             }
-
-            if (ship.getTurnTimerUp() >= 0) {
+            if (ship.getRectangle().getY() != arena.getPADDING()){
+            if (ship.getShipMovement().getTurnTimerUp() >= 0) {
 
                 ship.setY(ship.getY() - 1);
 
                 ship.getRectangle().translate(0, -1);
                 ship.drawSpaceShip();
-                ship.setTurnTimerUp(ship.getTurnTimerUp() - 1);
-                System.out.println(ship.getTurnTimerUp());
+                ship.getShipMovement().setTurnTimerUp(ship.getShipMovement().getTurnTimerUp() - 1);
+           //     System.out.println(ship.getShipMovement().getTurnTimerUp());
 
             }
-        }
+        }}
 
         }
 

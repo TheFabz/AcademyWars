@@ -1,11 +1,12 @@
 package org.academiadecodigo.academywars.chars.enemies;
 
 import org.academiadecodigo.academywars.chars.Avatar;
+import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
 
 public class Fire extends Enemy{
     //Constructor
-    public Fire(int health, int maxDamage, Avatar avatar){
-        super(health, maxDamage, avatar);
+    public Fire(int health, int maxDamage, Avatar avatar, SpaceShipPosition ship){
+        super(health, maxDamage, avatar, ship);
     }
 
     //Custom Methods

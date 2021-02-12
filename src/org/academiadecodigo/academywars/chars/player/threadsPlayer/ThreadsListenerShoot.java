@@ -18,7 +18,7 @@ public class ThreadsListenerShoot extends Thread {
 
                 if(ship.isShooting()) {
 
-                    System.out.println("OLA");
+             //       System.out.println("OLA");
                     try {
                         ship.fireShoot();
                     } catch (InterruptedException e) {

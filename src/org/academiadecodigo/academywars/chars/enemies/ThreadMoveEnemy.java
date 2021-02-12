@@ -1,25 +1,38 @@
 package org.academiadecodigo.academywars.chars.enemies;
 
 
+import org.academiadecodigo.academywars.chars.player.position.PositionCollider;
+import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
+
 public class ThreadMoveEnemy extends Thread{
     //Fields
     private int delay;
     private Enemy enemy;
     private int x1;
     private int y1;
+    private SpaceShipPosition ship;
 
     //Constructor
-    public ThreadMoveEnemy(int delay, Enemy enemy){
+    public ThreadMoveEnemy(int delay, Enemy enemy, SpaceShipPosition ship){
         this.delay = delay;
         this.enemy = enemy;
         this.x1 = enemy.getAvatar().getX();
         this.y1 = enemy.getAvatar().getY();
+        this.ship = ship;
     }
 
     //Custom Methods
     public void run(){
+        PositionCollider colider = new PositionCollider(ship,enemy);
+
         while(true){
             try {sleep(delay);} catch (Exception error){}
+            colider.collideWithEnemy(enemy);
+
+           if(colider.isColliding()){
+                enemy.getAvatar().getEnemy().delete();
+                return;
+            }
 
             if(enemy.getAvatar().getY() >= 670){
                 enemy.getAvatar().setDeleted();

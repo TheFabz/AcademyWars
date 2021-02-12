@@ -25,14 +25,11 @@ public class FireShootPosition extends Position {
             this.spaceShipPosition = spaceShipPosition;
             speed = 1;
             spaceShipCenterY = spaceShipPosition.getY()+10;
-            System.out.println(spaceShipCenterY);
+          //  System.out.println(spaceShipCenterY);
             spaceShipCenterX = spaceShipPosition.getX()+spaceShipPosition.getWIDTH()/2;
-            System.out.println(spaceShipCenterX);
+           // System.out.println(spaceShipCenterX);
             rectangle = new Rectangle(x,y,WIDTH,HEIGHT);
             isShooting = true;
-
-
-
 
         }
 
@@ -58,8 +55,6 @@ public class FireShootPosition extends Position {
             gunRecoil(speed);
         ThreadsShoot thread2 = new ThreadsShoot(1, this);
         thread2.start();
-
-
     }
 
     public void setShooting(boolean shooting) {
