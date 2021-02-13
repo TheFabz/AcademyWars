@@ -8,14 +8,14 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
+/*
 public class Test2 {
     public static void main(String[] args) throws InterruptedException {
         Move move1 = new Move(1000, "Test1");
         Move move2 = new Move(3000, "Test2");
         Move move3 = new Move(500, "test3");
 
-    }
+    }*/
 
 
 
@@ -28,6 +28,7 @@ public class Test2 {
 
 
 
+/*
 
     public static class Move extends Thread{
         //Fields
@@ -48,3 +49,4 @@ public class Test2 {
         }
     }
 }
+*/
