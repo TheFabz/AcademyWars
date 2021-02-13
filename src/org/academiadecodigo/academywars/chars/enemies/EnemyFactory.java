@@ -5,6 +5,8 @@ import org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;
 
 public class EnemyFactory {
 
+
+
     public static Enemy enemyFactory(Enemies enemy, SpaceShipPosition ship){
         int x = (int) (Math.random() * 1200) + 20;
         int y = 10;

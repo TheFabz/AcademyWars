@@ -20,7 +20,7 @@ public class CanvasTest {
 
         SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);
 
-        ThreadsListenerShoot thread = new ThreadsListenerShoot(10, spaceShipPosition);
+      /*  ThreadsListenerShoot thread = new ThreadsListenerShoot(10, spaceShipPosition);
        thread.start();
         ThreadsListenerTurnLeft threadLeft = new ThreadsListenerTurnLeft(10,spaceShipPosition);
         threadLeft.start();
@@ -29,7 +29,7 @@ public class CanvasTest {
         ThreadsListenerTurnUp threadUp  = new ThreadsListenerTurnUp(10,spaceShipPosition);
         threadUp.start();
         ThreadsListenerTurnDown threadDown = new ThreadsListenerTurnDown(10,spaceShipPosition);
-        threadDown.start();
+        threadDown.start();*/
 
 /*  while (true) {
 

@@ -1,5 +1,6 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
+import org.academiadecodigo.academywars.chars.enemies.Enemy;
 import org.academiadecodigo.academywars.chars.player.Arena;
 import org.academiadecodigo.academywars.chars.player.Direction;
 import org.academiadecodigo.academywars.chars.player.threadsPlayer.*;
@@ -20,6 +21,7 @@ public class SpaceShipPosition extends Position{
     private FireShootPosition shoot;
     private boolean isShooting;
     private ShipMovement shipMovement;
+    private Enemy[] enemies;
 
 
    public SpaceShipPosition(int x, int y, Arena arena){
@@ -27,7 +29,6 @@ public class SpaceShipPosition extends Position{
         this.arena = arena;
         isShooting = false;
         rectangle = new Picture(x,y,"resources/8BitSpaceShip.png");
-
         speed = 20;
         shipMovement = new ShipMovement(this, arena);
 
@@ -64,7 +65,7 @@ public class SpaceShipPosition extends Position{
 
     public void fireShoot() throws InterruptedException {
 
-        shoot = new FireShootPosition((getX()+((getWIDTH())/2)),getY()-getWIDTH()-10,arena,this);
+        shoot = new FireShootPosition((getX()+((getWIDTH())/2)),getY()-getWIDTH()-10,arena,this, enemies);
         isShooting = false;
         shoot.drawFireShoot();
         shoot.actualShoot();
@@ -78,6 +79,11 @@ public class SpaceShipPosition extends Position{
     public boolean isShooting() {
         return isShooting;
     }
+
+    public void addEnemy(Enemy[] enemies){
+       this.enemies = enemies;
+    }
+
 
 }
 

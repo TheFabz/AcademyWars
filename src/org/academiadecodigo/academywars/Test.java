@@ -26,46 +26,29 @@ public class Test {
 //        field.setColor(Color.BLACK);
       //  Picture field = new Picture(10, 10, "resources/space.jpeg");
         Arena arena = new Arena();
+        Enemy[] enemies = new Enemy[50];
         SpaceShipPosition ship = new SpaceShipPosition((arena.getFieldWidth() / 2), arena.getFieldHeight() / 2, arena);
 
+        for(int i=0; i<enemies.length; i++ ) {
+            enemies[i] = EnemyFactory.enemyFactory(ship);
+        }
+        ship.addEnemy(enemies);
+       // System.out.println(enemies[5].getClass().getSimpleName());
         //Enemy enemy = EnemyFactory.enemyFactory(Enemies.FIRE,ship);
       //  enemy.setX(arena.getFieldWidth() / 2);
-
-
-
-
        // enemy.getAvatar().getEnemy().draw();
-
-
-
-
-
-
       //  field.draw();
-
-
         Controls controls = new Controls(ship);
-
-        ship.drawSpaceShip();
+       ship.drawSpaceShip();
         controls.activateArrowKeys();
         controls.activateSpaceKey();
+   //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);
 
-        //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);
+        MainThread.Init(ship);
 
-        ThreadsListenerShoot thread = new ThreadsListenerShoot(10, ship);
-        thread.start();
-        ThreadsListenerTurnLeft threadLeft = new ThreadsListenerTurnLeft(10,ship);
-        threadLeft.start();
-        ThreadsListenerTurnRight threadRight = new ThreadsListenerTurnRight(10, ship);
-        threadRight.start();
-        ThreadsListenerTurnUp threadUp  = new ThreadsListenerTurnUp(10,ship);
-        threadUp.start();
-        ThreadsListenerTurnDown threadDown = new ThreadsListenerTurnDown(10,ship);
-        threadDown.start();
 
-        Enemy[] enemies = new Enemy[20];
 
-        InitializeEnemies.initialize(enemies, 32, 3000, ship);
+        InitializeEnemies.initialize(enemies, 16, 1000, ship);
     }
 
 

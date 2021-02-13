@@ -1,16 +1,13 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
-import org.academiadecodigo.academywars.chars.enemies.Enemies;
 import org.academiadecodigo.academywars.chars.enemies.Enemy;
-
-import java.awt.*;
 
 public class PositionCollider {
 
     private SpaceShipPosition ship;
     private Enemy enemy;
     private boolean isColliding;
-    private FireShootPosition fire;
+    private FireShootPosition shoot;
 
 
     //COLIDING WITH ENEMIES
@@ -22,11 +19,10 @@ public class PositionCollider {
 
     //COLIDING ENEMY WITH FIRESHOOT
 
-    public PositionCollider(SpaceShipPosition ship, Enemy enemy, FireShootPosition fire) {
-        this.ship = ship;
+    public PositionCollider(Enemy enemy, FireShootPosition fire) {
         this.enemy = enemy;
         this.isColliding = false;
-        this.fire = fire;
+        this.shoot = fire;
     }
 
 
@@ -39,18 +35,8 @@ public class PositionCollider {
         int shipY = ship.getY();
         int enemyY = enemy.getAvatar().getY();
 
-        /*
-          System.out.println("enemyY: "+enemyY);
-         System.out.println("                ShipX: :"+shipX);
-           System.out.println("                enemyX: "+enemyX);
-         if (shipY == enemyY) {
-            System.out.println("COLIDER YYYYYYYYYYYYYYYYYYYYY");
-        if(enemyX == shipX){
-        */
-
-      //  if (shipX >= enemyX && shipX <= enemyX + enemy.getAvatar().getWidth()) {
-            if(shipX+padding+ship.getWIDTH()>=enemyX-padding && shipX + ship.getWIDTH()-padding <= enemyX+enemy.getAvatar().getWidth()+ship.getWIDTH()+padding){
-            if (shipY <= enemyY+enemy.getAvatar().getHeight() && shipY+ship.getHEIGHT() >= enemyY-padding) {
+        if (shipX + padding + ship.getWIDTH() >= enemyX - padding && shipX + ship.getWIDTH() - padding <= enemyX + enemy.getAvatar().getWidth() + ship.getWIDTH() + padding) {
+            if (shipY <= enemyY + enemy.getAvatar().getHeight() && shipY + ship.getHEIGHT() >= enemyY - padding) {
 
 
                 System.out.println("COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
@@ -58,9 +44,30 @@ public class PositionCollider {
             }
         }
 
-       //
+
     }
 
+    public void collideFireshootWithEnemy(Enemy enemy) {
+
+        int padding = 30;
+        int shootX = shoot.getX();
+        int enemyX = enemy.getAvatar().getX();
+        System.out.println();
+        int shootY = shoot.getY();
+        int enemyY = enemy.getAvatar().getY();
+
+        if (shootX + padding + shoot.getRectangle().getWidth() >= enemyX - padding && shootX + shoot.getRectangle().getWidth() - padding <= enemyX + enemy.getAvatar().getWidth() + shoot.getRectangle().getWidth() + padding) {
+            if (shootY <= enemyY + enemy.getAvatar().getHeight() && shootY + shoot.getRectangle().getHeight() >= enemyY - padding) {
+
+
+                System.out.println("COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                isColliding = true;
+                enemy.setDestroyed();
+            }
+        }
+
+
+    }
 
 
     public void setColliding(boolean colliding) {

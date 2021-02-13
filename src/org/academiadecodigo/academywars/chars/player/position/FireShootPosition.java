@@ -1,5 +1,6 @@
 package org.academiadecodigo.academywars.chars.player.position;
 
+import org.academiadecodigo.academywars.chars.enemies.Enemy;
 import org.academiadecodigo.academywars.chars.player.Arena;
 import org.academiadecodigo.academywars.chars.player.threadsPlayer.ThreadsShoot;
 import org.academiadecodigo.simplegraphics.graphics.Color;
@@ -18,12 +19,14 @@ public class FireShootPosition extends Position {
         private int spaceShipCenterX;
         private int spaceShipCenterY;
         private boolean isShooting;
+        private Enemy[] enemies;
 
-        public FireShootPosition(int x, int y, Arena arena, SpaceShipPosition spaceShipPosition){
+        public FireShootPosition(int x, int y, Arena arena, SpaceShipPosition spaceShipPosition, Enemy[] enemies){
             super(x,y);
             this.arena = arena;
             this.spaceShipPosition = spaceShipPosition;
-            speed = 1;
+            this.enemies = enemies;
+            speed = 50;
             spaceShipCenterY = spaceShipPosition.getY()+10;
           //  System.out.println(spaceShipCenterY);
             spaceShipCenterX = spaceShipPosition.getX()+spaceShipPosition.getWIDTH()/2;
@@ -44,16 +47,16 @@ public class FireShootPosition extends Position {
         }
 
         public void gunRecoil(int speed) throws InterruptedException {
-            spaceShipPosition.getRectangle().translate(0,+speed*4);
+            spaceShipPosition.getRectangle().translate(0,+speed/5);
             TimeUnit.MILLISECONDS.sleep(100);
-            spaceShipPosition.getRectangle().translate(0,-speed*4);
+            spaceShipPosition.getRectangle().translate(0,-speed/5);
         }
 
 
 
     public void actualShoot() throws InterruptedException {
             gunRecoil(speed);
-        ThreadsShoot thread2 = new ThreadsShoot(1, this);
+        ThreadsShoot thread2 = new ThreadsShoot(100, this, enemies);
         thread2.start();
     }
 

@@ -8,6 +8,7 @@ public abstract class GameChar implements Destroyable{
     private Avatar avatar;
     private int x;
     private int y;
+    private boolean isDraw;
 
     //Constructor
     public GameChar(int health, int maxDamage, Avatar avatar){
@@ -15,6 +16,8 @@ public abstract class GameChar implements Destroyable{
         this.maxDamage = maxDamage;
         this.destroyed = false;
         this.avatar = avatar;
+
+        isDraw = false;
         //x = avatar.ge
     }
 
@@ -31,6 +34,12 @@ public abstract class GameChar implements Destroyable{
         return avatar;
     }
 
+    public boolean isDraw() {
+        return isDraw;
+    }
+
+
+
     @Override
     public boolean isDestroyed() {
         return destroyed;
@@ -39,6 +48,10 @@ public abstract class GameChar implements Destroyable{
     //Setters
     public void setDestroyed(){
         this.destroyed = true;
+    }
+
+    public void setDraw(boolean draw) {
+        isDraw = draw;
     }
 
     //Custom Methods

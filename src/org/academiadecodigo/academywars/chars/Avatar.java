@@ -22,7 +22,7 @@ public class Avatar {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        enemy.draw();
+       // enemy.draw();
         width = enemy.getWidth();
         height = enemy.getHeight();
         System.out.println("WIDTH: "+width);
