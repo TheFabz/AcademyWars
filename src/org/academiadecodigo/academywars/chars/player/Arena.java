@@ -18,25 +18,19 @@ public class Arena {
         FIELD_WIDTH = field.getWidth()+PADDING;
     }
 
-
     public void initArena(){
         field.draw();
-
-
     }
 
     public Picture getField() {
         return field;
     }
-
     public  int getFieldHeight() {
         return FIELD_HEIGHT;
     }
-
     public  int getPADDING() {
         return PADDING;
     }
-
     public  int getFieldWidth() {
         return FIELD_WIDTH;
     }

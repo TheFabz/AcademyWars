@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*
 
 public class Test {
 
@@ -33,32 +34,12 @@ public class Test {
             enemies[i] = EnemyFactory.enemyFactory(ship);
         }
         ship.addEnemy(enemies);
-       // System.out.println(enemies[5].getClass().getSimpleName());
-        //Enemy enemy = EnemyFactory.enemyFactory(Enemies.FIRE,ship);
-      //  enemy.setX(arena.getFieldWidth() / 2);
-       // enemy.getAvatar().getEnemy().draw();
-      //  field.draw();
-        Controls controls = new Controls(ship);
-       ship.drawSpaceShip();
-        controls.activateArrowKeys();
-        controls.activateSpaceKey();
-   //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);
-
-        MainThread.Init(ship);
-
 
 
         InitializeEnemies.initialize(enemies, 16, 1000, ship);
     }
 
+*/
 
-
-
-
-
-
-
-
-
-
-}
+/*
+}*/

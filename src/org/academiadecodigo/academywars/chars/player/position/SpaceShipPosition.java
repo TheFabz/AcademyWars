@@ -2,6 +2,7 @@ package org.academiadecodigo.academywars.chars.player.position;
 
 import org.academiadecodigo.academywars.chars.enemies.Enemy;
 import org.academiadecodigo.academywars.chars.player.Arena;
+import org.academiadecodigo.academywars.chars.player.Controls;
 import org.academiadecodigo.academywars.chars.player.Direction;
 import org.academiadecodigo.academywars.chars.player.threadsPlayer.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -31,12 +32,16 @@ public class SpaceShipPosition extends Position{
         rectangle = new Picture(x,y,"resources/8BitSpaceShip.png");
         speed = 20;
         shipMovement = new ShipMovement(this, arena);
+        MainThread.Init(this);
+        Controls controls = new Controls(this);
+        this.drawSpaceShip();
+        controls.activateArrowKeys();
+        controls.activateSpaceKey();
 
     }
 
     public void drawSpaceShip(){
         rectangle.draw();
-
     }
 
     public ShipMovement getShipMovement() {
@@ -75,14 +80,13 @@ public class SpaceShipPosition extends Position{
     public void setShooting(boolean shooting) {
         isShooting = shooting;
     }
-
     public boolean isShooting() {
         return isShooting;
     }
-
     public void addEnemy(Enemy[] enemies){
        this.enemies = enemies;
     }
+
 
 
 }
