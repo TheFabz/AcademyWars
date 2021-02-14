@@ -1,0 +1,273 @@
+Index: src/org/academiadecodigo/academywars/Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars;\r\n\r\nimport org.academiadecodigo.academywars.chars.Destroyable;\r\nimport org.academiadecodigo.academywars.chars.TextBoxes.TextBoxes;\r\nimport org.academiadecodigo.academywars.chars.TextBoxes.TextPlacement;\r\nimport org.academiadecodigo.academywars.chars.enemies.*;\r\nimport org.academiadecodigo.academywars.chars.player.Arena;\r\nimport org.academiadecodigo.academywars.chars.player.Controls;\r\nimport org.academiadecodigo.academywars.chars.player.position.PositionCollider;\r\nimport org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;\r\nimport org.academiadecodigo.academywars.chars.player.threadsPlayer.*;\r\nimport org.academiadecodigo.simplegraphics.graphics.Color;\r\nimport org.academiadecodigo.simplegraphics.graphics.Rectangle;\r\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\r\n\r\nimport java.awt.*;\r\nimport java.util.LinkedList;\r\nimport java.util.concurrent.TimeUnit;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class Test {\r\n\r\n    public static void main(String[] args) throws InterruptedException {\r\n//        Rectangle field = new Rectangle(10, 10 , 1280, 720);\r\n//        field.fill();\r\n//        field.setColor(Color.BLACK);\r\n        //  Picture field = new Picture(10, 10, \"resources/space.jpeg\");\r\n        Arena arena = new Arena();\r\n        Enemy[] enemies = new Enemy[0];\r\n        SpaceShipPosition ship = new SpaceShipPosition((arena.getFieldWidth() / 2), arena.getFieldHeight() / 2, arena);\r\n\r\n        for(int i=0; i<enemies.length; i++ ) {\r\n            enemies[i] = EnemyFactory.enemyFactory(ship);\r\n        }\r\n        ship.addEnemy(enemies);\r\n        // System.out.println(enemies[5].getClass().getSimpleName());\r\n        //Enemy enemy = EnemyFactory.enemyFactory(Enemies.FIRE,ship);\r\n        //  enemy.setX(arena.getFieldWidth() / 2);\r\n        // enemy.getAvatar().getEnemy().draw();\r\n        //  field.draw();\r\n        Controls controls = new Controls(ship);\r\n        ship.drawSpaceShip();\r\n        controls.activateArrowKeys();\r\n        controls.activateSpaceKey();\r\n        //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);\r\n\r\n        MainThread.Init(ship);\r\n\r\n        InitializeEnemies.initialize(enemies, 16, 1000, ship);\r\n\r\n\r\n        /** teste gaio:\r\n         *\r\n         *\r\n         */\r\n\r\n        /*Rectangle rectangle = new Rectangle(10,10,650,340);\r\n        rectangle.draw();\r\n        rectangle.fill();\r\n        rectangle.setColor(Color.WHITE);*/\r\n        TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL1);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/Test.java b/src/org/academiadecodigo/academywars/Test.java
+--- a/src/org/academiadecodigo/academywars/Test.java	
++++ b/src/org/academiadecodigo/academywars/Test.java	
+@@ -27,7 +27,7 @@
+ //        field.setColor(Color.BLACK);
+         //  Picture field = new Picture(10, 10, "resources/space.jpeg");
+         Arena arena = new Arena();
+-        Enemy[] enemies = new Enemy[0];
++        Enemy[] enemies = new Enemy[50];
+         SpaceShipPosition ship = new SpaceShipPosition((arena.getFieldWidth() / 2), arena.getFieldHeight() / 2, arena);
+ 
+         for(int i=0; i<enemies.length; i++ ) {
+@@ -43,23 +43,18 @@
+         ship.drawSpaceShip();
+         controls.activateArrowKeys();
+         controls.activateSpaceKey();
++
+         //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);
+ 
+         MainThread.Init(ship);
+ 
+         InitializeEnemies.initialize(enemies, 16, 1000, ship);
+ 
+-
+         /** teste gaio:
+          *
+          *
+          */
+-
+-        /*Rectangle rectangle = new Rectangle(10,10,650,340);
+-        rectangle.draw();
+-        rectangle.fill();
+-        rectangle.setColor(Color.WHITE);*/
+-        TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL1);
+-
++        //TextBoxes textBoxes = new TextBoxes(TextPlacement.OPENSCREEN);
++        //TextBoxes textBoxes2 = new TextBoxes(TextPlacement.LEVEL1);
+     }
+ }
+Index: src/org/academiadecodigo/academywars/chars/player/position/PositionCollider.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.player.position;\r\n\r\nimport org.academiadecodigo.academywars.chars.enemies.Enemy;\r\n\r\npublic class PositionCollider {\r\n\r\n    private SpaceShipPosition ship;\r\n    private Enemy enemy;\r\n    private boolean isColliding;\r\n    private FireShootPosition shoot;\r\n\r\n\r\n    //COLIDING WITH ENEMIES\r\n    public PositionCollider(SpaceShipPosition ship, Enemy enemy) {\r\n        this.ship = ship;\r\n        this.enemy = enemy;\r\n        this.isColliding = false;\r\n    }\r\n\r\n    //COLIDING ENEMY WITH FIRESHOOT\r\n\r\n    public PositionCollider(Enemy enemy, FireShootPosition fire) {\r\n        this.enemy = enemy;\r\n        this.isColliding = false;\r\n        this.shoot = fire;\r\n    }\r\n\r\n\r\n    public void collideWithEnemy(Enemy enemy) {\r\n\r\n        int padding = 30;\r\n        int shipX = ship.getX();\r\n        int enemyX = enemy.getAvatar().getX();\r\n        System.out.println();\r\n        int shipY = ship.getY();\r\n        int enemyY = enemy.getAvatar().getY();\r\n\r\n        if (shipX + padding + ship.getWIDTH() >= enemyX - padding && shipX + ship.getWIDTH() - padding <= enemyX + enemy.getAvatar().getWidth() + ship.getWIDTH() + padding) {\r\n            if (shipY <= enemyY + enemy.getAvatar().getHeight() && shipY + ship.getHEIGHT() >= enemyY - padding) {\r\n\r\n\r\n                System.out.println(\"COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY\");\r\n                isColliding = true;\r\n            }\r\n        }\r\n\r\n\r\n    }\r\n\r\n    public void collideFireshootWithEnemy(Enemy enemy) {\r\n\r\n        int padding = 30;\r\n        int shootX = shoot.getX();\r\n        int enemyX = enemy.getAvatar().getX();\r\n        System.out.println();\r\n        int shootY = shoot.getY();\r\n        int enemyY = enemy.getAvatar().getY();\r\n\r\n        if (shootX + padding + shoot.getRectangle().getWidth() >= enemyX - padding && shootX + shoot.getRectangle().getWidth() - padding <= enemyX + enemy.getAvatar().getWidth() + shoot.getRectangle().getWidth() + padding) {\r\n            if (shootY <= enemyY + enemy.getAvatar().getHeight() && shootY + shoot.getRectangle().getHeight() >= enemyY - padding) {\r\n\r\n\r\n                System.out.println(\"COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY\");\r\n                isColliding = true;\r\n                enemy.setDestroyed();\r\n            }\r\n        }\r\n\r\n\r\n    }\r\n\r\n\r\n    public void setColliding(boolean colliding) {\r\n        this.isColliding = colliding;\r\n    }\r\n\r\n    public boolean isColliding() {\r\n        return isColliding;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/player/position/PositionCollider.java b/src/org/academiadecodigo/academywars/chars/player/position/PositionCollider.java
+--- a/src/org/academiadecodigo/academywars/chars/player/position/PositionCollider.java	
++++ b/src/org/academiadecodigo/academywars/chars/player/position/PositionCollider.java	
+@@ -25,7 +25,6 @@
+         this.shoot = fire;
+     }
+ 
+-
+     public void collideWithEnemy(Enemy enemy) {
+ 
+         int padding = 30;
+@@ -38,13 +37,10 @@
+         if (shipX + padding + ship.getWIDTH() >= enemyX - padding && shipX + ship.getWIDTH() - padding <= enemyX + enemy.getAvatar().getWidth() + ship.getWIDTH() + padding) {
+             if (shipY <= enemyY + enemy.getAvatar().getHeight() && shipY + ship.getHEIGHT() >= enemyY - padding) {
+ 
+-
+                 System.out.println("COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                 isColliding = true;
+             }
+         }
+-
+-
+     }
+ 
+     public void collideFireshootWithEnemy(Enemy enemy) {
+@@ -59,14 +55,11 @@
+         if (shootX + padding + shoot.getRectangle().getWidth() >= enemyX - padding && shootX + shoot.getRectangle().getWidth() - padding <= enemyX + enemy.getAvatar().getWidth() + shoot.getRectangle().getWidth() + padding) {
+             if (shootY <= enemyY + enemy.getAvatar().getHeight() && shootY + shoot.getRectangle().getHeight() >= enemyY - padding) {
+ 
+-
+                 System.out.println("COLIDERR XXXXXXXXXXXXXXXXXXXXXXXX AND YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                 isColliding = true;
+                 enemy.setDestroyed();
+             }
+         }
+-
+-
+     }
+ 
+ 
+Index: src/org/academiadecodigo/academywars/chars/player/Arena.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.player;\r\n\r\nimport org.academiadecodigo.simplegraphics.graphics.Color;\r\nimport org.academiadecodigo.simplegraphics.graphics.Rectangle;\r\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\r\n\r\npublic class Arena {\r\n\r\n    private static final int PADDING=10;\r\n    private Picture field;\r\n    private int FIELD_WIDTH;\r\n    private int FIELD_HEIGHT;\r\n\r\n    public Arena(){\r\n        field = new Picture(PADDING,PADDING, \"resources/space.jpeg\");\r\n        initArena();\r\n        FIELD_HEIGHT = field.getHeight()+PADDING;\r\n        FIELD_WIDTH = field.getWidth()+PADDING;\r\n    }\r\n\r\n\r\n    public void initArena(){\r\n        field.draw();\r\n\r\n\r\n    }\r\n\r\n    public Picture getField() {\r\n        return field;\r\n    }\r\n\r\n    public  int getFieldHeight() {\r\n        return FIELD_HEIGHT;\r\n    }\r\n\r\n    public  int getPADDING() {\r\n        return PADDING;\r\n    }\r\n\r\n    public  int getFieldWidth() {\r\n        return FIELD_WIDTH;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/player/Arena.java b/src/org/academiadecodigo/academywars/chars/player/Arena.java
+--- a/src/org/academiadecodigo/academywars/chars/player/Arena.java	
++++ b/src/org/academiadecodigo/academywars/chars/player/Arena.java	
+@@ -21,8 +21,6 @@
+ 
+     public void initArena(){
+         field.draw();
+-
+-
+     }
+ 
+     public Picture getField() {
+Index: src/org/academiadecodigo/academywars/chars/TextBoxes/TextBoxes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.TextBoxes;\r\nimport org.academiadecodigo.simplegraphics.graphics.Color;\r\nimport org.academiadecodigo.simplegraphics.graphics.Text;\r\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\r\n\r\nimport java.awt.*;\r\n\r\npublic class TextBoxes{\r\n\r\n    private TextPlacement textPlacement ;\r\n    private Font MineBit;\r\n    private boolean stop = false;\r\n    public TextBoxes(TextPlacement textPlacement) throws InterruptedException {\r\n\r\n        this.textPlacement = textPlacement;\r\n        MineBit = Font.getFont(\"resources/Minecraft.ttf\");\r\n        init();\r\n        //arena : 1208 x 650\r\n    }\r\n\r\n    public void init() throws InterruptedException {\r\n\r\n        switch (textPlacement) {\r\n\r\n            //case OPENSCREEN ->\r\n            case LEVEL1 -> Textlevel1init();\r\n            case LEVEL2 -> Textlevel2init();\r\n            //case BOSS1 ->\r\n            //case LEVEL3 ->\r\n            //case BOSS2 ->\r\n            //case LEVEL4 ->\r\n            //case BOSS3 ->\r\n            //case LEVEL5 ->\r\n            //case BOSS4 ->\r\n            //case VICTORYSCREEN ->\r\n            //case GAMEOVER ->\r\n            //case TRANSITION1 ->\r\n\r\n        }\r\n\r\n    }\r\n\r\n    public void setStop(){\r\n        stop = true;\r\n    }\r\n\r\n    public void Textlevel1init() throws InterruptedException {\r\n\r\n        Text text = new Text(600,-50,\"ACADEMY WARS\");\r\n        text.draw();\r\n        text.setColor(Color.WHITE);\r\n        text.grow(100,100);\r\n\r\n        Picture picture = new Picture(-50,330,\"resources/8BitSpaceShip.png\");\r\n        picture.draw();\r\n\r\n        for (int i = 0; i < 200; i++) {\r\n            Thread.sleep(15);\r\n            if(i<=100){\r\n                text.translate(0,3.75);\r\n            }\r\n            if(i>100){\r\n                picture.translate(5,0);\r\n            }\r\n        }\r\n        Thread.sleep(500);\r\n        text.delete();\r\n        picture.delete();\r\n\r\n        Text text2 = new Text(600,325,\"ARE YOU READY?\");\r\n        text2.draw();\r\n        text2.setColor(Color.WHITE);\r\n        text2.grow(50,50);\r\n\r\n        Text text3 = new Text(605,410,\"Press tab to start\");\r\n        text3.setColor(Color.WHITE);\r\n        text3.grow(50,0);\r\n\r\n        while (stop == false) {\r\n            text3.draw();\r\n            Thread.sleep(180);\r\n            text3.delete();\r\n            Thread.sleep(100);\r\n        }\r\n    }\r\n\r\n    public void Textlevel2init() throws InterruptedException {\r\n\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/TextBoxes/TextBoxes.java b/src/org/academiadecodigo/academywars/chars/TextBoxes/TextBoxes.java
+--- a/src/org/academiadecodigo/academywars/chars/TextBoxes/TextBoxes.java	
++++ b/src/org/academiadecodigo/academywars/chars/TextBoxes/TextBoxes.java	
+@@ -9,12 +9,13 @@
+ 
+     private TextPlacement textPlacement ;
+     private Font MineBit;
+-    private boolean stop = false;
++    private boolean stop;
+     public TextBoxes(TextPlacement textPlacement) throws InterruptedException {
+ 
+         this.textPlacement = textPlacement;
+         MineBit = Font.getFont("resources/Minecraft.ttf");
+         init();
++
+         //arena : 1208 x 650
+     }
+ 
+@@ -22,9 +23,9 @@
+ 
+         switch (textPlacement) {
+ 
+-            //case OPENSCREEN ->
+-            case LEVEL1 -> Textlevel1init();
+-            case LEVEL2 -> Textlevel2init();
++            case OPENSCREEN ->openScreeNInit();
++            case LEVEL1 -> TextLevel1init();
++            //case LEVEL2 ->
+             //case BOSS1 ->
+             //case LEVEL3 ->
+             //case BOSS2 ->
+@@ -35,16 +36,14 @@
+             //case VICTORYSCREEN ->
+             //case GAMEOVER ->
+             //case TRANSITION1 ->
+-
+         }
+-
+     }
+ 
+     public void setStop(){
+         stop = true;
+     }
+ 
+-    public void Textlevel1init() throws InterruptedException {
++    public void openScreeNInit() throws InterruptedException {
+ 
+         Text text = new Text(600,-50,"ACADEMY WARS");
+         text.draw();
+@@ -72,21 +71,41 @@
+         text2.setColor(Color.WHITE);
+         text2.grow(50,50);
+ 
++        // press tab to start
++
+         Text text3 = new Text(605,410,"Press tab to start");
+         text3.setColor(Color.WHITE);
+         text3.grow(50,0);
++
++        while(stop = false) {
++            text3.draw();
++            Thread.sleep(220);
++            text3.delete();
++            Thread.sleep(220);
++        }
++    }
++
++    public void TextLevel1init() throws InterruptedException {
++
++        Picture picture = new Picture(10,80,"resources/boss1.png");
++        picture.draw();
++
++        Text text2 = new Text(640,325,"LEVEL 1");
++        text2.draw();
++        text2.setColor(Color.WHITE);
++        text2.grow(50,50);
++
++        Text text3 = new Text(610,410,"Press tab to start");
++        text3.setColor(Color.WHITE);
++        text3.grow(50,0);
+ 
+         while (stop == false) {
+             text3.draw();
+-            Thread.sleep(180);
++            Thread.sleep(220);
+             text3.delete();
+-            Thread.sleep(100);
++            Thread.sleep(220);
+         }
+     }
+-
+-    public void Textlevel2init() throws InterruptedException {
+ 
+ 
+-
+-    }
+ }
+Index: src/org/academiadecodigo/academywars/chars/player/position/Position.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.player.position;\r\n\r\npublic class Position {\r\n\r\n    private int x;\r\n    private int y;\r\n\r\n    public Position(int x, int y){\r\n        this.x=x;\r\n        this.y=y;\r\n    }\r\n\r\n    public void setX(int x) {\r\n        this.x = x;\r\n    }\r\n\r\n    public void setY(int y) {\r\n        this.y = y;\r\n    }\r\n\r\n    public int getY() {\r\n        return y;\r\n    }\r\n\r\n    public int getX() {\r\n        return x;\r\n    }\r\n    }\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/player/position/Position.java b/src/org/academiadecodigo/academywars/chars/player/position/Position.java
+--- a/src/org/academiadecodigo/academywars/chars/player/position/Position.java	
++++ b/src/org/academiadecodigo/academywars/chars/player/position/Position.java	
+@@ -25,6 +25,4 @@
+     public int getX() {
+         return x;
+     }
+-    }
+-
+-
++}
+\ No newline at end of file
+Index: src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.player.position;\r\n\r\nimport org.academiadecodigo.academywars.chars.enemies.Enemy;\r\nimport org.academiadecodigo.academywars.chars.player.Arena;\r\nimport org.academiadecodigo.academywars.chars.player.Direction;\r\nimport org.academiadecodigo.academywars.chars.player.threadsPlayer.*;\r\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\r\n\r\nimport java.util.concurrent.TimeUnit;\r\n\r\nimport static org.academiadecodigo.academywars.chars.player.Direction.*;\r\n\r\npublic class SpaceShipPosition extends Position{\r\n\r\n    private static final int WIDTH = 40;\r\n    private static final int HEIGHT = 20;\r\n    private int speed;\r\n    private Arena arena;\r\n    private Picture rectangle;\r\n\r\n    private FireShootPosition shoot;\r\n    private boolean isShooting;\r\n    private ShipMovement shipMovement;\r\n    private Enemy[] enemies;\r\n\r\n\r\n   public SpaceShipPosition(int x, int y, Arena arena){\r\n        super(x,y);\r\n        this.arena = arena;\r\n        isShooting = false;\r\n        rectangle = new Picture(x,y,\"resources/8BitSpaceShip.png\");\r\n        speed = 20;\r\n        shipMovement = new ShipMovement(this, arena);\r\n\r\n    }\r\n\r\n    public void drawSpaceShip(){\r\n        rectangle.draw();\r\n\r\n    }\r\n\r\n    public ShipMovement getShipMovement() {\r\n        return shipMovement;\r\n    }\r\n\r\n    public int getSpeed() {\r\n        return speed;\r\n    }\r\n\r\n    public int getWIDTH() {\r\n        return WIDTH;\r\n    }\r\n\r\n    public int getHEIGHT() {\r\n        return HEIGHT;\r\n    }\r\n\r\n    public Picture getRectangle() {\r\n        return rectangle;\r\n    }\r\n\r\n    public FireShootPosition getShoot() {\r\n        return shoot;\r\n    }\r\n\r\n    public void fireShoot() throws InterruptedException {\r\n\r\n        shoot = new FireShootPosition((getX()+((getWIDTH())/2)),getY()-getWIDTH()-10,arena,this, enemies);\r\n        isShooting = false;\r\n        shoot.drawFireShoot();\r\n        shoot.actualShoot();\r\n\r\n    }\r\n\r\n    public void setShooting(boolean shooting) {\r\n        isShooting = shooting;\r\n    }\r\n\r\n    public boolean isShooting() {\r\n        return isShooting;\r\n    }\r\n\r\n    public void addEnemy(Enemy[] enemies){\r\n       this.enemies = enemies;\r\n    }\r\n\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java b/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java
+--- a/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java	
++++ b/src/org/academiadecodigo/academywars/chars/player/position/SpaceShipPosition.java	
+@@ -28,7 +28,7 @@
+         super(x,y);
+         this.arena = arena;
+         isShooting = false;
+-        rectangle = new Picture(x,y,"resources/8BitSpaceShip.png");
++        rectangle = new Picture(x,y,"resources/ship.png");
+         speed = 20;
+         shipMovement = new ShipMovement(this, arena);
+ 
+Index: src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars.chars.player.position;\r\n\r\nimport org.academiadecodigo.academywars.chars.enemies.Enemy;\r\nimport org.academiadecodigo.academywars.chars.player.Arena;\r\nimport org.academiadecodigo.academywars.chars.player.threadsPlayer.ThreadsShoot;\r\nimport org.academiadecodigo.simplegraphics.graphics.Color;\r\nimport org.academiadecodigo.simplegraphics.graphics.Rectangle;\r\n\r\nimport java.util.concurrent.TimeUnit;\r\n\r\npublic class FireShootPosition extends Position {\r\n\r\n        private static final int WIDTH = 5;\r\n        private static final int HEIGHT = 20;\r\n        private int speed;\r\n        private Arena arena;\r\n        private Rectangle rectangle;\r\n        private SpaceShipPosition spaceShipPosition;\r\n        private int spaceShipCenterX;\r\n        private int spaceShipCenterY;\r\n        private boolean isShooting;\r\n        private Enemy[] enemies;\r\n\r\n        public FireShootPosition(int x, int y, Arena arena, SpaceShipPosition spaceShipPosition, Enemy[] enemies){\r\n            super(x,y);\r\n            this.arena = arena;\r\n            this.spaceShipPosition = spaceShipPosition;\r\n            this.enemies = enemies;\r\n            speed = 50;\r\n            spaceShipCenterY = spaceShipPosition.getY()+10;\r\n          //  System.out.println(spaceShipCenterY);\r\n            spaceShipCenterX = spaceShipPosition.getX()+spaceShipPosition.getWIDTH()/2;\r\n           // System.out.println(spaceShipCenterX);\r\n            rectangle = new Rectangle(x,y,WIDTH,HEIGHT);\r\n            isShooting = true;\r\n\r\n        }\r\n\r\n        public void drawFireShoot(){\r\n            rectangle.draw();\r\n            rectangle.setColor(Color.WHITE);\r\n            rectangle.fill();\r\n        }\r\n\r\n        public int getSpeed() {\r\n            return speed;\r\n        }\r\n\r\n        public void gunRecoil(int speed) throws InterruptedException {\r\n            spaceShipPosition.getRectangle().translate(0,+speed/5);\r\n            TimeUnit.MILLISECONDS.sleep(100);\r\n            spaceShipPosition.getRectangle().translate(0,-speed/5);\r\n        }\r\n\r\n\r\n\r\n    public void actualShoot() throws InterruptedException {\r\n            gunRecoil(speed);\r\n        ThreadsShoot thread2 = new ThreadsShoot(100, this, enemies);\r\n        thread2.start();\r\n    }\r\n\r\n    public void setShooting(boolean shooting) {\r\n        isShooting = shooting;\r\n    }\r\n\r\n    public Rectangle getRectangle() {\r\n        return rectangle;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java b/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java
+--- a/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java	
++++ b/src/org/academiadecodigo/academywars/chars/player/position/FireShootPosition.java	
+@@ -55,7 +55,7 @@
+ 
+ 
+     public void actualShoot() throws InterruptedException {
+-            gunRecoil(speed);
++        gunRecoil(speed);
+         ThreadsShoot thread2 = new ThreadsShoot(100, this, enemies);
+         thread2.start();
+     }

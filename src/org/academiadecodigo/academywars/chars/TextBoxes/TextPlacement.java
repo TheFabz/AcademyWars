@@ -8,16 +8,13 @@ public enum TextPlacement {
     LEVEL3,
     LEVEL4,
     LEVEL5,
+    TRANSITION,
     BOSS1,
     BOSS2,
     BOSS3,
     BOSS4,
     VICTORYSCREEN,
-    GAMEOVER,
-    TRANSITION1,
-    TRANSITION2,
-    TRANSITION3,
-    TRANSITION4;
+    GAMEOVER;
 
     TextPlacement(){
 

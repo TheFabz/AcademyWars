@@ -1,0 +1,24 @@
+Index: src/org/academiadecodigo/academywars/Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.academiadecodigo.academywars;\r\n\r\nimport org.academiadecodigo.academywars.chars.Destroyable;\r\nimport org.academiadecodigo.academywars.chars.TextBoxes.TextBoxes;\r\nimport org.academiadecodigo.academywars.chars.TextBoxes.TextPlacement;\r\nimport org.academiadecodigo.academywars.chars.enemies.*;\r\nimport org.academiadecodigo.academywars.chars.player.Arena;\r\nimport org.academiadecodigo.academywars.chars.player.Controls;\r\nimport org.academiadecodigo.academywars.chars.player.position.PositionCollider;\r\nimport org.academiadecodigo.academywars.chars.player.position.SpaceShipPosition;\r\nimport org.academiadecodigo.academywars.chars.player.threadsPlayer.*;\r\nimport org.academiadecodigo.simplegraphics.graphics.Color;\r\nimport org.academiadecodigo.simplegraphics.graphics.Rectangle;\r\nimport org.academiadecodigo.simplegraphics.pictures.Picture;\r\n\r\nimport java.awt.*;\r\nimport java.util.LinkedList;\r\nimport java.util.concurrent.TimeUnit;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class Test {\r\n\r\n    public static void main(String[] args) throws InterruptedException {\r\n//        Rectangle field = new Rectangle(10, 10 , 1280, 720);\r\n//        field.fill();\r\n//        field.setColor(Color.BLACK);\r\n        //  Picture field = new Picture(10, 10, \"resources/space.jpeg\");\r\n        Arena arena = new Arena();\r\n        Enemy[] enemies = new Enemy[0];\r\n        SpaceShipPosition ship = new SpaceShipPosition((arena.getFieldWidth() / 2), arena.getFieldHeight() / 2, arena);\r\n\r\n        for(int i=0; i<enemies.length; i++ ) {\r\n            enemies[i] = EnemyFactory.enemyFactory(ship);\r\n        }\r\n        ship.addEnemy(enemies);\r\n        // System.out.println(enemies[5].getClass().getSimpleName());\r\n        //Enemy enemy = EnemyFactory.enemyFactory(Enemies.FIRE,ship);\r\n        //  enemy.setX(arena.getFieldWidth() / 2);\r\n        // enemy.getAvatar().getEnemy().draw();\r\n        //  field.draw();\r\n        Controls controls = new Controls(ship);\r\n        ship.drawSpaceShip();\r\n        controls.activateArrowKeys();\r\n        controls.activateSpaceKey();\r\n        //SpaceShipPosition spaceShipPositionTest = new SpaceShipPosition((100), 100, arena);\r\n\r\n        MainThread.Init(ship);\r\n\r\n        InitializeEnemies.initialize(enemies, 16, 1000, ship);\r\n\r\n\r\n        /** teste gaio:\r\n         *\r\n         *\r\n         */\r\n\r\n        /*Rectangle rectangle = new Rectangle(10,10,650,340);\r\n        rectangle.draw();\r\n        rectangle.fill();\r\n        rectangle.setColor(Color.WHITE);*/\r\n        TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL1);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/academiadecodigo/academywars/Test.java b/src/org/academiadecodigo/academywars/Test.java
+--- a/src/org/academiadecodigo/academywars/Test.java	(revision 56b4fbb6e5b843fe4930338c15cfc7add3404e25)
++++ b/src/org/academiadecodigo/academywars/Test.java	(date 1613306545209)
+@@ -55,11 +55,8 @@
+          *
+          */
+ 
+-        /*Rectangle rectangle = new Rectangle(10,10,650,340);
+-        rectangle.draw();
+-        rectangle.fill();
+-        rectangle.setColor(Color.WHITE);*/
+-        TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL1);
++        //TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL1);
++        TextBoxes textBoxes = new TextBoxes(TextPlacement.LEVEL2);
+ 
+     }
+ }

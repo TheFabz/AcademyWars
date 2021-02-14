@@ -56,7 +56,13 @@ public class Test {
 
         //TextBoxes textBoxes1 = new TextBoxes(TextPlacement.OPENSCREEN);
         //TextBoxes textBoxes2 = new TextBoxes(TextPlacement.LEVEL1);
-        TextBoxes textBoxes3 = new TextBoxes(TextPlacement.TRANSITION1);
+        //TextBoxes textBoxes3 = new TextBoxes(TextPlacement.TRANSITION);
+        //TextBoxes textBoxes4 = new TextBoxes(TextPlacement.VICTORYSCREEN);
+        //TextBoxes textBoxes4 = new TextBoxes(TextPlacement.GAMEOVER);
+        //TextBoxes textBoxes5 = new TextBoxes(TextPlacement.BOSS1);
+        //TextBoxes textBoxes6 = new TextBoxes(TextPlacement.BOSS2);
+        //TextBoxes textBoxes7 = new TextBoxes(TextPlacement.BOSS3);
+        //TextBoxes textBoxes8 = new TextBoxes(TextPlacement.BOSS4);
 
     }
 }
