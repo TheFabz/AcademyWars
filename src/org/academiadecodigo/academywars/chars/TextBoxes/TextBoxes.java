@@ -36,6 +36,8 @@ public class TextBoxes{
         }
     }
 
+    //não está a ser usado! é um método que tem de ser implementado para parar as apresentações!
+
     public void Stop(){
         isStopped = true;
     }
