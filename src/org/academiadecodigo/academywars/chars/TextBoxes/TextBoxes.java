@@ -1,9 +1,8 @@
 package org.academiadecodigo.academywars.chars.TextBoxes;
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-
-import java.awt.*;
 
 public class TextBoxes{
 
@@ -12,6 +11,9 @@ public class TextBoxes{
 
     public TextBoxes(TextPlacement textPlacement) throws InterruptedException {
 
+        Rectangle rectangle = new Rectangle(10,10,1280,70);
+        rectangle.draw();
+        rectangle.setColor(Color.BLACK);
         this.textPlacement = textPlacement;
         init();
         //arena : 1208 x 650
@@ -74,49 +76,46 @@ public class TextBoxes{
         text3.setColor(Color.WHITE);
         text3.grow(50,0);
 
-        while (!isStopped) {
-            text3.draw();
-            Thread.sleep(180);
-            text3.delete();
-            Thread.sleep(100);
-        }
+
+        text3.draw();
+        Thread.sleep(180);
+        text3.delete();
+        Thread.sleep(100);
+
     }
 
     public void TextLevelInit( int level) throws InterruptedException {
 
         int levelNumber = level;
 
-        Text text2 = new Text(630,325,"LEVEL " + levelNumber);
+        Text text2 = new Text(640,325,"LEVEL " + levelNumber);
         text2.draw();
         text2.setColor(Color.WHITE);
         text2.grow(50,50);
 
-        Text text3 = new Text(605,410,"Press space to start");
+        Text text3 = new Text(620,410,"Press space to start");
         text3.setColor(Color.WHITE);
-        text3.grow(50,0);
+        text3.grow(80,30);
 
-        while (!isStopped) {
-            text3.draw();
-            Thread.sleep(180);
-            text3.delete();
-            Thread.sleep(100);
-        }
+        text3.draw();
+        Thread.sleep(180);
+        text3.delete();
+        Thread.sleep(100);
+
     }
 
     public void transitionInit() throws InterruptedException {
 
-        while (!isStopped) {
+        Picture background = new Picture(10, 10, "resources/loading1.png");
+        background.draw();
+        Thread.sleep(1000);
+        Picture background2 = new Picture(10, 10, "resources/loading2.png");
+        background2.draw();
+        Thread.sleep(1000);
+        Picture background3 = new Picture(10, 10, "resources/loading3.png");
+        background3.draw();
+        Thread.sleep(1000);
 
-            Picture background = new Picture(10, 10, "resources/loading1.png");
-            background.draw();
-            Thread.sleep(1000);
-            Picture background2 = new Picture(10, 10, "resources/loading2.png");
-            background2.draw();
-            Thread.sleep(1000);
-            Picture background3 = new Picture(10, 10, "resources/loading3.png");
-            background3.draw();
-            Thread.sleep(1000);
-        }
     }
 
     public void victoryInit(){
@@ -131,21 +130,20 @@ public class TextBoxes{
         Picture background = new Picture(10, 80, "resources/gameover_2.png");
         background.draw();
 
-        Text text = new Text(605,610,"Press space to start again");
+        Text text = new Text(605,590,"Press space to start again");
         text.setColor(Color.WHITE);
         text.grow(80,30);
 
-        while (!isStopped) {
-            text.draw();
-            Thread.sleep(180);
-            text.delete();
-            Thread.sleep(100);
-        }
+
+        text.draw();
+        Thread.sleep(180);
+        text.delete();
+        Thread.sleep(100);
 
     }
 
     public void BossInit(int boss) throws InterruptedException {
-
+        
         switch (boss){
 
             case 1:
